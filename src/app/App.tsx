@@ -1,11 +1,13 @@
 import React from 'react';
 import classes from './App.module.css';
+import { BrowserRouter } from "react-router";
+import { AppRouter } from "./providers/AppRouter";
 
 const App = () => {
     return (
-        <div className={classes.app}>
-            WORKS
-        </div>
+        <BrowserRouter>
+            <AppRouter/>
+        </BrowserRouter>
     );
 };
 
