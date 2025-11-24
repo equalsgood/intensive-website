@@ -1,0 +1,13 @@
+@import "./reset.css";
+@import "./variables/global.css";
+@import "./themes/light.css";
+
+html {
+    scroll-behavior: smooth;
+}
+
+.app {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

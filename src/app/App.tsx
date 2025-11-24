@@ -1,12 +1,16 @@
 import React from 'react';
-import classes from './App.module.css';
 import { BrowserRouter } from "react-router";
 import { AppRouter } from "./providers/AppRouter";
+import './styles/index.css';
+import { Header } from "widgets";
 
 const App = () => {
     return (
         <BrowserRouter>
-            <AppRouter/>
+            <div className="app light">
+                <Header/>
+                <AppRouter/>
+            </div>
         </BrowserRouter>
     );
 };
