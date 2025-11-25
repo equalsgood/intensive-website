@@ -26,8 +26,18 @@ export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
         ],
     };
 
+    const fileLoader = {
+        test: /\.(png|jpe?g|gif|mp4)$/i,
+        use: [
+            {
+                loader: 'file-loader',
+            },
+        ],
+    }
+
     return [
         typescriptLoader,
-        cssLoader
+        cssLoader,
+        fileLoader
     ]
 }

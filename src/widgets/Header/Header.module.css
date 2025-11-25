@@ -1,5 +1,5 @@
 .header {
-    width: var(--content-width);
-    background: var(--header-bg-color);
+    width: 100%;
+    background: transparent;
     height: 100px;
 }

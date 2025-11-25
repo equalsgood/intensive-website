@@ -8,7 +8,7 @@ const App = () => {
     return (
         <BrowserRouter>
             <div className="app light">
-                <Header/>
+                {/*<Header/>*/}
                 <AppRouter/>
             </div>
         </BrowserRouter>

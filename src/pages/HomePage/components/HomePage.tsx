@@ -1,10 +1,11 @@
 import React from 'react';
+import { HomeIntroduction } from "sections/home";
 
 const HomePage = () => {
     return (
-        <div>
-            HOME PAGE
-        </div>
+        <main>
+            <HomeIntroduction/>
+        </main>
     );
 };
 

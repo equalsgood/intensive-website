@@ -1,0 +1,16 @@
+.button {
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background: transparent;
+}
+
+.action {
+    background: var(--second-color);
+    color: var(--third-text-color);
+    border-radius: 60px;
+    font-size: 20px;
+    font-weight: var(--font-weight-l);
+}

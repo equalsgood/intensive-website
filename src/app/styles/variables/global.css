@@ -1,9 +1,21 @@
 :root {
-    --content-width: 1200px;
+    --content-width: 1320px;
+
+    --font-weight-xxxl: 900;
+    --font-weight-xxl: 800;
+    --font-weight-xl: 700;
+    --font-weight-l: 600;
+    --font-weight-m: 500;
+    --font-weight-s: 400;
+    --font-weight-xs: 300;
+    --font-weight-xxs: 200;
+
+    --background-z-index: 1;
+    --content-z-index: 2;
 }
 
-@media(max-width: 1279px) {
-    :root {
-        --content-width: 800px;
-    }
-}
+/*@media(max-width: 1279px) {*/
+/*    :root {*/
+/*        --content-width: 800px;*/
+/*    }*/
+/*}*/

@@ -1,3 +1,9 @@
 .light {
+    --primary-color: #FFD749;
+    --second-color: #602B7A;
+
+    --second-text-color: #602B7A;
+    --third-text-color: #fff;
+
     --header-bg-color: teal;
 }

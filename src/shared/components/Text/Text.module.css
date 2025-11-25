@@ -1,0 +1,27 @@
+.text {
+    color: #000;
+}
+
+.title {
+    color: var(--second-text-color);
+    font-weight: var(--font-weight-xl);
+    font-size: 48px;
+    line-height: 48px;
+}
+
+.subtitle {
+    color: var(--second-text-color);
+    font-weight: var(--font-weight-l);
+    font-size: 24px;
+}
+
+.paragraph, .paragraph-bold {
+    color: var(--third-text-color);
+    font-size: 20px;
+    font-weight: var(--font-weight-s);
+    line-height: 32px;
+}
+
+.paragraph-bold {
+    font-weight: var(--font-weight-l);
+}
