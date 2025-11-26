@@ -1,16 +1,19 @@
-.text {
-    color: #000;
+.title, .title-small, .subtitle, .text  {
+    color: var(--second-text-color);
 }
 
-.title {
-    color: var(--second-text-color);
+.title, .title-small {
     font-weight: var(--font-weight-xl);
     font-size: 48px;
     line-height: 48px;
 }
 
+.title-small {
+    font-size: 24px;
+    line-height: 30px;
+}
+
 .subtitle {
-    color: var(--second-text-color);
     font-weight: var(--font-weight-l);
     font-size: 24px;
 }
@@ -24,4 +27,9 @@
 
 .paragraph-bold {
     font-weight: var(--font-weight-l);
+}
+
+.text  {
+    font-size: 18px;
+    font-weight: var(--font-weight-m);
 }

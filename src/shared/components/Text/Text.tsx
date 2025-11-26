@@ -4,9 +4,11 @@ import cls from './Text.module.css';
 
 export enum TextVariants {
     TITLE = 'title',
+    TITLE_SMALL = 'titleSmall',
     SUBTITLE = 'subtitle',
     PARAGRAPH_BOLD = 'paragraphBold',
     PARAGRAPH = 'paragraph',
+    TEXT = 'text',
 }
 
 type TextTags = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'span' | 'p';
@@ -20,7 +22,7 @@ interface TextProps {
 }
 export const Text = (props: TextProps) => {
     const { tag, children, variant, classNamesProps, width } = props;
-    const classes = classNames(cls.text, cls[variant], classNamesProps);
+    const classes = classNames(cls[variant], classNamesProps);
 
     if(tag === 'h1')
         return <h1 className={classes}>{children}</h1>
