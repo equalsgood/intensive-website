@@ -4,6 +4,7 @@ import classNames from "classnames";
 
 export enum ButtonVariants {
     ACTION = 'action',
+    ACTION_SECOND = 'actionSecond',
 }
 
 interface ButtonProps {

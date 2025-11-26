@@ -12,8 +12,6 @@
 
 .title {
     width: 85%;
-    font-weight: var(--font-weight-xxl);
-    line-height: 56px;
 }
 
 .subtitle {

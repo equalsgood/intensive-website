@@ -21,7 +21,7 @@ export const StudyingPrograms = () => {
     return (
         <section className={classes.sectionContainer}>
             <div className={classes.titleContainer}>
-                <Text tag="h2" classNamesProps={classes.title} variant={TextVariants.TITLE}>
+                <Text tag="h2" classNamesProps={classes.title} variant={TextVariants.TITLE_BOLD}>
                     Обирайте учбову програму з англійської згідно Ваших потреб
                 </Text>
                 <Text tag="p" classNamesProps={classes.subtitle} variant={TextVariants.SUBTITLE}>

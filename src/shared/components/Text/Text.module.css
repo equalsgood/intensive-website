@@ -1,11 +1,57 @@
-.title, .title-small, .subtitle, .text  {
+.main {
     color: var(--second-text-color);
+}
+
+.reversed {
+    color: var(--third-text-color);
+}
+
+.heavy {
+    font-weight: var(--font-weight-xxxl);
+}
+
+.extra-bold {
+    font-weight: var(--font-weight-xxl);
+}
+
+.bold {
+    font-weight: var(--font-weight-xl);
+}
+
+.semi-bold {
+    font-weight: var(--font-weight-l);
+}
+
+.medium {
+    font-weight: var(--font-weight-m);
+}
+
+.normal {
+    font-weight: var(--font-weight-s);
+}
+
+.light {
+    font-weight: var(--font-weight-xs);
+}
+
+.title, .title-small, .subtitle, .text, .title-bold  {
+    color: var(--second-text-color);
+}
+
+.title-bold-reversed  {
+    color: var(--third-text-color);
 }
 
 .title, .title-small {
     font-weight: var(--font-weight-xl);
     font-size: 48px;
     line-height: 48px;
+}
+
+.title-bold, .title-bold-reversed {
+    font-weight: var(--font-weight-xxl);
+    line-height: 56px;
+    font-size: 48px;
 }
 
 .title-small {
