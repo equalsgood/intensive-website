@@ -4,7 +4,6 @@
     align-items: center;
     gap: 80px;
     background: var(--third-color);
-    height: 1000px;
     padding: 80px 0;
 }
 
@@ -129,17 +128,10 @@
 .teachers-wrapper {
     width: 750px;
     height: 100%;
-    overflow: hidden;
-    position: relative;
 }
 
 .teachers-container {
-    height: 100%;
-    display: flex;
     gap: 24px;
-    transition: all 2s;
-    position: absolute;
-    top: 0;
 }
 
 .teacher {

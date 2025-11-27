@@ -9,6 +9,7 @@ import teacher3 from 'shared/assets/images/teachers/teacher3.png';
 import teacher4 from 'shared/assets/images/teachers/teacher4.png';
 import teacher5 from 'shared/assets/images/teachers/teacher5.png';
 import ArrowIcon from 'shared/assets/icons/arrow.svg';
+import { Carousel } from "shared/components/Carousel/Carousel";
 
 const englishSubject: ISubject = { title: 'Англійська мова', bgColor: '#D6FBBD'};
 const teachersConfig: Array<TeacherProps> = [
@@ -20,55 +21,15 @@ const teachersConfig: Array<TeacherProps> = [
 ]
 
 export const Teachers = () => {
-    const singleStep = 258;
-    const [firstOffset, setFirstOffset] = useState(-singleStep * teachersConfig.length)
-    const [secondOffset, setSecondOffset] = useState(0)
-    const [thirdOffset, setThirdOffset] = useState(singleStep * teachersConfig.length)
-
-    const firstRef = useRef<HTMLDivElement>(null);
-    const secondRef = useRef<HTMLDivElement>(null);
-    const thirdRef = useRef<HTMLDivElement>(null);
-
-    const offsetCount = (prevState: number, isNext: boolean, ref: RefObject<HTMLDivElement>) => {
-        let newOffset = isNext ? prevState - singleStep : prevState + singleStep;
-        if(Math.abs(newOffset) > singleStep * (teachersConfig.length + 1)) {
-            if(newOffset > 0) {
-                newOffset = newOffset - (singleStep * teachersConfig.length * 3);
-            }
-            else if(newOffset < 0) {
-                newOffset = newOffset + (singleStep * teachersConfig.length * 3);
-            }
-        }
-        if(Math.abs(newOffset) > singleStep * (teachersConfig.length)){
-            ref.current.style.display = 'none';
-        } else {
-            ref.current.style.display = 'flex';
-        }
-        return newOffset;
-    }
-
+    // const singleStep = 258;
+    const [nextClicked, setNextClicked] = useState(0);
+    const [prevClicked, setPrevClicked] = useState(0);
     const next = () => {
-        setFirstOffset(prevState => {
-            return offsetCount(prevState, true, firstRef);
-        });
-        setSecondOffset(prevState => {
-            return offsetCount(prevState, true, secondRef);
-        });
-        setThirdOffset(prevState => {
-            return offsetCount(prevState, true, thirdRef);
-        });
+        setNextClicked(prev => prev + 1);
     }
 
     const prev = () => {
-        setFirstOffset(prevState => {
-            return offsetCount(prevState, false, firstRef);
-        });
-        setSecondOffset(prevState => {
-            return offsetCount(prevState, false, secondRef);
-        });
-        setThirdOffset(prevState => {
-            return offsetCount(prevState, false, thirdRef);
-        });
+        setPrevClicked(prev => prev + 1);
     }
 
     return (
@@ -97,26 +58,18 @@ export const Teachers = () => {
                         олімпіаді</Text>
                     <Text tag="p" color={TextColor.MAIN} weight={TextWeight.MEDIUM}>Пояснять про підводні камені іспитів та найпоширеніші помилки, а також розкажуть, як їх уникнути.</Text>
                 </div>
-                <div className={classes.teachersWrapper}>
-                    <div ref={firstRef} style={{left: `${firstOffset}px`}} className={classes.teachersContainer}>
-                        {teachersConfig.map(({name, description, img, subject, bg}, index) =>
-                            <Teacher key={`${name}-${index}`} bg={bg} name={name} img={img} subject={subject}
-                                     description={description}/>
-                        )}
-                    </div>
-                    <div ref={secondRef} style={{left: `${secondOffset}px`}} className={classes.teachersContainer}>
-                        {teachersConfig.map(({name, description, img, subject, bg}, index) =>
-                            <Teacher key={`${name}-${index}`} bg={bg} name={name} img={img} subject={subject}
-                                     description={description}/>
-                        )}
-                    </div>
-                    <div ref={thirdRef} style={{left: `${thirdOffset}px`}} className={classes.teachersContainer}>
-                        {teachersConfig.map(({name, description, img, subject, bg}, index) =>
-                            <Teacher key={`${name}-${index}`} bg={bg} name={name} img={img} subject={subject}
-                                     description={description}/>
-                        )}
-                    </div>
-                </div>
+                <Carousel
+                    nextClicked={nextClicked}
+                    prevClicked={prevClicked}
+                    carouselItems={
+                    teachersConfig.map(({name, description, img, subject, bg}, index) =>
+                        <Teacher key={`${name}-${index}`} bg={bg} name={name} img={img} subject={subject}
+                                 description={description}/>
+                    )}
+                    singleStep={258}
+                    wrapperSizesClass={classes.teachersWrapper}
+                    containerPropsClass={classes.teachersContainer}
+                />
             </div>
         </section>
     );

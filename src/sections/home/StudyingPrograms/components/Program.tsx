@@ -25,7 +25,7 @@ export const Program = ({ program }: ProgramProps) => {
             <img src={img} alt={`image of a ${title} program`} className={classNames(classes.programImage, {[classes.hovered]: isHovering, [classes.biggerImage]: title === 'Студенти'})}/>
             <ol style={{background: `${background}`}} className={classNames(classes.hoverContainer, {[classes.active]: isHovering})}>
                 { programAspects.map(aspect =>
-                    <li>
+                    <li key={aspect}>
                         <Text tag="span" variant={TextVariants.TEXT}>{aspect}</Text>
                     </li>
                 )}
