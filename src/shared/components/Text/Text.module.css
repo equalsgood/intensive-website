@@ -2,6 +2,10 @@
     color: var(--second-text-color);
 }
 
+.second {
+    color: var(--primary-text-color);
+}
+
 .reversed {
     color: var(--third-text-color);
 }

@@ -20,6 +20,7 @@
   "homepage": "https://github.com/equalsgood/intensive-website#readme",
   "description": "",
   "devDependencies": {
+    "@svgr/webpack": "^8.1.0",
     "@types/node": "^24.10.1",
     "@types/react": "^19.2.6",
     "@types/react-dom": "^19.2.3",
@@ -31,6 +32,7 @@
     "html-webpack-plugin": "^5.6.5",
     "mini-css-extract-plugin": "^2.9.4",
     "style-loader": "^4.0.0",
+    "svg-inline-loader": "^0.8.2",
     "ts-loader": "^9.5.4",
     "ts-node": "^10.9.2",
     "typescript": "^5.9.3",

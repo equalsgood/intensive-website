@@ -1,0 +1,189 @@
+.section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 80px;
+    background: var(--third-color);
+    height: 1000px;
+    padding: 80px 0;
+}
+
+.title-container {
+    width: var(--content-second-width);
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.switches {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    gap: 6px;
+}
+
+.switch {
+    height: 47px;
+    width: 47px;
+    transition: transform 0.2s;
+}
+
+.right {
+    transform: rotate(180deg);
+}
+
+.switch:hover {
+    transform: scale(1.15);
+}
+
+.switch:active {
+    transform: scale(1);
+    background: var(--second-color);
+    color: var(--primary-color);
+}
+
+.right:hover {
+    transform: scale(1.15) rotate(180deg);
+}
+
+.right:active {
+    transform: scale(1) rotate(180deg);
+}
+
+.label-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 500px;
+}
+
+.label-wrapper {
+    padding: 4px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    position: relative;
+}
+
+.purple {
+    background: var(--second-color);
+}
+
+.yellow {
+    background: var(--primary-color);
+}
+
+.purple::after, .yellow::after {
+    position: absolute;
+    height: 33px;
+    width: 33px;
+    content: '';
+}
+
+.purple::after {
+    left: -17px;
+    top: 7px;
+    background: var(--second-color);
+    transform: rotate(45deg);
+}
+
+.yellow::after {
+    right: -17px;
+    top: 7px;
+    background: var(--primary-color);;
+    transform: rotate(45deg);
+}
+
+.label-text {
+    font-size: 32px;
+    letter-spacing: 2px;
+}
+
+.content {
+    display: flex;
+    gap: 35px;
+    width: var(--content-second-width);
+    height: 390px;
+}
+
+.text-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 415px;
+    padding-right: 35px;
+    border-right: var(--primary-color) solid 2px;
+}
+
+.text-container h2 {
+    font-size: 48px;
+    line-height: 52px;
+}
+
+.text-container p {
+    font-size: 20px;
+}
+
+.teachers-wrapper {
+    width: 750px;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.teachers-container {
+    height: 100%;
+    display: flex;
+    gap: 24px;
+    transition: all 2s;
+    position: absolute;
+    top: 0;
+}
+
+.teacher {
+    height: 100%;
+    width: 234px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    flex-shrink: 0;
+}
+
+.teacher span {
+    margin-top: 15px;
+    font-size: 20px;
+}
+
+.teacher p {
+    font-size: 16px;
+}
+
+.image-container {
+    width: 150px;
+    height: 208px;
+    border-radius: 5px;
+    display: flex;
+    align-items: end;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+}
+
+.image {
+    height: 80%;
+}
+
+.badge {
+    padding: 8px 16px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    transform: translateX(-20%);
+    width: max-content;
+}
+
+.badge span {
+    font-size: 14px;
+}

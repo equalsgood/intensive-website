@@ -10,11 +10,11 @@
 }
 
 .title {
-    width: 1200px;
+    width: var(--content-second-width);
 }
 
 .reasons-container {
-    width: 1200px;
+    width: var(--content-second-width);
     display: grid;
     grid-template-columns: 3fr 4fr;
     grid-template-rows: 1fr 1fr 1fr;

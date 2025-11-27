@@ -1,5 +1,5 @@
 import React from 'react';
-import { HomeIntroduction, StudyingPrograms, WhyWe } from "sections/home";
+import { HomeIntroduction, StudyingPrograms, Teachers, WhyWe } from "sections/home";
 
 const HomePage = () => {
     return (
@@ -7,6 +7,7 @@ const HomePage = () => {
             <HomeIntroduction/>
             <StudyingPrograms/>
             <WhyWe/>
+            <Teachers/>
         </main>
     );
 };
