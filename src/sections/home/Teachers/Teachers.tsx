@@ -9,7 +9,7 @@ import teacher3 from 'shared/assets/images/teachers/teacher3.png';
 import teacher4 from 'shared/assets/images/teachers/teacher4.png';
 import teacher5 from 'shared/assets/images/teachers/teacher5.png';
 import ArrowIcon from 'shared/assets/icons/arrow.svg';
-import { Carousel } from "shared/components/Carousel/Carousel";
+import { Carousel } from 'shared/components';
 
 const englishSubject: ISubject = { title: 'Англійська мова', bgColor: '#D6FBBD'};
 const teachersConfig: Array<TeacherProps> = [

@@ -30,3 +30,8 @@
 .switch:hover {
     transform: scale(1.2);
 }
+
+.switch-transparent {
+    background: transparent;
+    border-radius: 50%;
+}

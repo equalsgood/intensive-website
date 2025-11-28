@@ -6,6 +6,7 @@ export enum ButtonVariants {
     ACTION = 'action',
     ACTION_SECOND = 'actionSecond',
     SWITCH = 'switch',
+    SWITCH_TRANSPARENT = 'switchTransparent',
 }
 
 interface ButtonProps {

@@ -1,5 +1,6 @@
 import { Text, TextVariants, TextColor, TextWeight } from './Text/Text';
 import { Button, ButtonVariants } from './Button/Button';
+import { Carousel } from './Carousel/Carousel';
 
 export {
     Text,
@@ -7,5 +8,6 @@ export {
     TextWeight,
     TextColor,
     ButtonVariants,
-    Button
+    Button,
+    Carousel
 }
