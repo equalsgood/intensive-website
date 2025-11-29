@@ -1,5 +1,6 @@
 import React from 'react';
 import { HomeIntroduction, StudyingPrograms, Teachers, WhyWe, Testimonials } from "sections/home";
+import { TryForFree } from "sections/shared";
 
 const HomePage = () => {
     return (
@@ -9,6 +10,7 @@ const HomePage = () => {
             <WhyWe/>
             <Teachers/>
             <Testimonials/>
+            <TryForFree/>
         </main>
     );
 };

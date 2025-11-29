@@ -1,6 +1,8 @@
 import { Text, TextVariants, TextColor, TextWeight } from './Text/Text';
 import { Button, ButtonVariants } from './Button/Button';
 import { Carousel } from './Carousel/Carousel';
+import { Input } from './Input/Input';
+import { PhoneNumberInput } from './PhoneNumberInput/PhoneNumberInput';
 
 export {
     Text,
@@ -9,5 +11,7 @@ export {
     TextColor,
     ButtonVariants,
     Button,
-    Carousel
+    Carousel,
+    Input,
+    PhoneNumberInput
 }
