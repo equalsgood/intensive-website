@@ -1,7 +1,7 @@
 import React from 'react';
 import { HomeIntroduction, StudyingPrograms, Teachers, WhyWe, Testimonials } from "sections/home";
-import { TryForFree } from "sections/shared";
-
+import { TryForFree, UsefulLinks } from "sections/shared";
+import { Divider } from 'shared/components'
 const HomePage = () => {
     return (
         <main>
@@ -11,6 +11,8 @@ const HomePage = () => {
             <Teachers/>
             <Testimonials/>
             <TryForFree/>
+            <Divider/>
+            <UsefulLinks/>
         </main>
     );
 };

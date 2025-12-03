@@ -3,6 +3,7 @@ import { Button, ButtonVariants } from './Button/Button';
 import { Carousel } from './Carousel/Carousel';
 import { Input } from './Input/Input';
 import { PhoneNumberInput } from './PhoneNumberInput/PhoneNumberInput';
+import { Divider } from './Divider/Divider';
 
 export {
     Text,
@@ -13,5 +14,6 @@ export {
     Button,
     Carousel,
     Input,
-    PhoneNumberInput
+    PhoneNumberInput,
+    Divider
 }
