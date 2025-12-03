@@ -1,1 +1,0 @@
-export { PricingPageAsync as PricingPage } from './components/PricingPage.async';

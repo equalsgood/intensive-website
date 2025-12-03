@@ -1,28 +1,21 @@
 .section {
-    height: 1000px;
     display: flex;
     gap: 40px;
     flex-direction: column;
     align-items: center;
-    padding: 80px 0;
+    padding: 60px 0 100px;
     background-color: var(--third-color);
 }
 
 .title {
-    width: 1000px;
+    width: var(--content-second-width);
     font-size: 56px;
 }
 
 .links {
-    width: 1000px;
+    width: var(--content-second-width);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 200px;
-}
-
-.link {
-    width: 400px;
-    height: 200px;
-    background-color: cadetblue;
+    gap: 60px;
 }

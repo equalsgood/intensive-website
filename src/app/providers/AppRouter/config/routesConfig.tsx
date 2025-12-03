@@ -1,15 +1,21 @@
 import { Navigate, RouteProps } from "react-router";
-import { HomePage } from "../../../../pages/HomePage";
-import { PricingPage } from "../../../../pages/PricingPage";
+import { HomePage } from "pages/HomePage";
+import { FaqPage } from "pages/FaqPage";
+import { LocationsPage } from "pages/LocationsPage";
+import { ContactsPage } from "pages/ContactsPage";
 
-enum RoutePaths {
+export enum RoutePaths {
     HOME = '/',
-    PRICING = '/pricing',
+    FAQ = '/faq',
+    LOCATIONS = '/locations',
+    CONTACTS = '/contacts',
     NO_MATCH = '*',
 }
 
 export const routesConfig: Array<RouteProps> = [
     { path: RoutePaths.HOME, element: <HomePage/> },
-    { path: RoutePaths.PRICING, element: <PricingPage/> },
+    { path: RoutePaths.FAQ, element: <FaqPage/> },
+    { path: RoutePaths.LOCATIONS, element: <LocationsPage/> },
+    { path: RoutePaths.CONTACTS, element: <ContactsPage/> },
     { path: RoutePaths.NO_MATCH, element: <Navigate to="/" replace /> },
 ]
