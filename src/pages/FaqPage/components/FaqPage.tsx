@@ -1,8 +1,9 @@
 import React from 'react';
+import cls from './FaqPage.module.css';
 
 const FaqPage = () => {
     return (
-        <main>
+        <main className={cls.page}>
             FaqPage
         </main>
     );

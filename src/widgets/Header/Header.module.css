@@ -1,5 +1,27 @@
 .header {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
+    height: 150px;
     background: transparent;
-    height: 100px;
+    border-bottom: 3px solid white;
+    z-index: 5;
+}
+
+.header-fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: var(--header-shrinked-height);
+    width: 100%;
+    background: white;
+    border-bottom: 1px solid black;
+    z-index: inherit;
+    transform: translateY(-100%);
+    transition: transform 0.5s;
+}
+
+.header-fixed.visible {
+    transform: translateY(0);
 }

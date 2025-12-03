@@ -1,0 +1,4 @@
+.page {
+    padding-top: var(--header-shrinked-height);
+    height: 2000px;
+}

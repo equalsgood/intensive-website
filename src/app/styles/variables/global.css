@@ -2,6 +2,9 @@
     --content-width: 1320px;
     --content-second-width: 1200px;
 
+    --header-full-height: 150px;
+    --header-shrinked-height: 100px;
+
     --font-weight-xxxl: 900;
     --font-weight-xxl: 800;
     --font-weight-xl: 700;

@@ -2,15 +2,19 @@ import React from 'react';
 import { BrowserRouter } from "react-router";
 import { AppRouter } from "./providers/AppRouter";
 import './styles/index.css';
-import { Header } from "widgets";
+import { Footer, Header } from "widgets";
+import { ContextProvider } from "app/providers/ContextProvider";
 
 const App = () => {
     return (
         <BrowserRouter>
-            <div className="app light">
-                {/*<Header/>*/}
-                <AppRouter/>
-            </div>
+            <ContextProvider>
+                <div className="app light">
+                    <Header/>
+                    <AppRouter/>
+                    <Footer/>
+                </div>
+            </ContextProvider>
         </BrowserRouter>
     );
 };
