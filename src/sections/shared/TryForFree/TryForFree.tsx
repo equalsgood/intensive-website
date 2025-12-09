@@ -76,7 +76,7 @@ export const TryForFree = () => {
                     </Text>
                     <ul className={cls.steps}>
                         { stepsConfig.map(({img, text}) =>
-                            <Step img={img} text={text} />
+                            <Step key={text} img={img} text={text} />
                         )}
                     </ul>
                 </div>
