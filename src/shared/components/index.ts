@@ -4,7 +4,7 @@ import { Carousel } from './Carousel/Carousel';
 import { Input } from './Input/Input';
 import { PhoneNumberInput } from './PhoneNumberInput/PhoneNumberInput';
 import { Divider } from './Divider/Divider';
-import { CustomLink, CustomLinkProps } from './CustomLink/CustomLink';
+import { CustomLink, CustomLinkProps, CustomLinkVariants } from './CustomLink/CustomLink';
 
 export {
     Text,
@@ -18,5 +18,6 @@ export {
     PhoneNumberInput,
     Divider,
     CustomLink,
-    CustomLinkProps
+    CustomLinkProps,
+    CustomLinkVariants
 }

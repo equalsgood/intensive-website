@@ -1,9 +1,10 @@
 import React from 'react';
 import cls from './UsefulLinks.module.css';
-import { CustomLink, CustomLinkProps, Text, TextColor, TextWeight } from "shared/components";
+import { Text, TextColor, TextWeight } from "shared/components";
+import { CustomLinkCard, CustomLinkCardProps } from "./components/CustomLinkCard";
 
 interface UsefulLinksProps {
-    links: Array<CustomLinkProps>
+    links: Array<CustomLinkCardProps>
 }
 
 export const UsefulLinks = ({links}: UsefulLinksProps) => {
@@ -14,7 +15,7 @@ export const UsefulLinks = ({links}: UsefulLinksProps) => {
             </Text>
             <nav className={cls.links}>
                 { links.map(({to, title, description, img}) =>
-                    <CustomLink
+                    <CustomLinkCard
                         key={title}
                         to={to}
                         title={title}

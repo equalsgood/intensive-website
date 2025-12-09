@@ -1,37 +1,53 @@
-import React, { useState } from 'react';
+import React, { ReactNode } from 'react';
 import cls from "./CustomLink.module.css";
-import { Text, TextColor, TextWeight } from "shared/components";
-import classNames from "classnames";
-import Arrow from "shared/assets/icons/arrow.svg";
 import { RoutePaths } from "app/providers/AppRouter";
 import { Link } from "react-router";
+import classNames from "classnames";
+
+export enum CustomLinkVariants {
+    WRAPPER = 'wrapper',
+    CARD = 'card'
+}
 
 export interface CustomLinkProps {
+    children: ReactNode;
     to: RoutePaths;
-    title: string;
-    description: string;
-    img: string;
+    variant: CustomLinkVariants;
+    classNamesProps?: string;
+    hoverHandler?: (hovered: boolean) => void;
 }
 
 export const CustomLink = (props: CustomLinkProps) => {
-    const { to, title, description, img } = props;
-    const [hover, setHover] = useState(false);
+    const {
+        to,
+        variant,
+        classNamesProps,
+        hoverHandler,
+        children
+    } = props;
+
+    const classes = classNames(cls.link, classNamesProps);
+
+    if(variant === CustomLinkVariants.CARD)
+        return (
+            <Link
+                to={to}
+                className={classes}
+                onMouseEnter={() => hoverHandler(true)}
+                onMouseLeave={() => hoverHandler(false)}
+            >
+                {children}
+            </Link>
+        )
 
     return (
-        <Link to={to} className={cls.link} onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}>
-            <Text tag="h4" weight={TextWeight.BOLD} color={TextColor.MAIN}>
-                {title}
-            </Text>
-            <Text tag="p" weight={TextWeight.MEDIUM} color={TextColor.MAIN}>
-                {description}
-            </Text>
-            <div className={cls.discover}>
-                <Text tag="span" weight={TextWeight.MEDIUM} color={TextColor.MAIN}>відвідати сторінку</Text>
-                <div className={classNames(cls.arrow, {[cls.hover]: hover})}>
-                    <Arrow/>
-                </div>
-            </div>
-            <img alt={`image describing ${title}`} src={img} className={cls.linkImage}/>
+        <Link
+            to={to}
+            className={cls.link}
+            onMouseEnter={() => hoverHandler(true)}
+            onMouseLeave={() => hoverHandler(false)}
+        >
+            {children}
         </Link>
     );
 };
