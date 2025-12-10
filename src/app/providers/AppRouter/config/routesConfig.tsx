@@ -12,6 +12,11 @@ export enum RoutePaths {
     NO_MATCH = '*',
 }
 
+export enum Anchors {
+    PHONE = 'tel:+380964562483',
+    TG = 'https://t.me/tutorartembabak',
+}
+
 export const routesConfig: Array<RouteProps> = [
     { path: RoutePaths.HOME, element: <HomePage/> },
     { path: RoutePaths.FAQ, element: <FaqPage/> },

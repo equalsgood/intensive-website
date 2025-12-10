@@ -1,4 +1,4 @@
 import AppRouter from "./components/AppRouter";
-import { RoutePaths } from "./config/routesConfig";
+import { RoutePaths, Anchors } from "./config/routesConfig";
 
-export { AppRouter, RoutePaths }
+export { AppRouter, RoutePaths, Anchors }

@@ -35,3 +35,16 @@
     background: transparent;
     border-radius: 50%;
 }
+
+.outlinedReversed {
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--third-text-color);
+    border: 2px solid var(--third-color);
+    border-radius: 60px;
+    padding: 0 20px;
+    font-size: 16px;
+    font-weight: 500;
+}

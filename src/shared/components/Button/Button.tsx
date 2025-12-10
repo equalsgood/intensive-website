@@ -7,6 +7,7 @@ export enum ButtonVariants {
     ACTION_SECOND = 'actionSecond',
     SWITCH = 'switch',
     SWITCH_TRANSPARENT = 'switchTransparent',
+    OUTLINED_REVERSED = 'outlinedReversed'
 }
 
 interface ButtonProps {
