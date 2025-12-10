@@ -1,6 +1,6 @@
 import React from 'react';
 import cls from "../../Header.module.css";
-import { Logo } from "../Logo/Logo";
+import { Logo } from "shared/components";
 import { Button, ButtonVariants, CustomLink, CustomLinkVariants } from "shared/components";
 import { Anchors, RoutePaths } from "app/providers/AppRouter";
 import TgIcon from "shared/assets/icons/social/tg-transparent.svg";

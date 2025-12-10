@@ -3,7 +3,7 @@ import cls from './Header.module.css';
 import { useLocation } from "react-router";
 import { Anchors, RoutePaths } from "app/providers/AppRouter";
 import classNames from "classnames";
-import { Logo } from "widgets/Header/components/Logo/Logo";
+import { Logo } from "shared/components";
 import TgIcon from "shared/assets/icons/social/tg-transparent.svg";
 import { Button, ButtonVariants, CustomLink, CustomLinkVariants } from "shared/components";
 import { FixedHeaderNav } from "./components/FixedHeaderNav/FixedHeaderNav";
@@ -17,13 +17,15 @@ export const Header = memo(() => {
     useEffect(() => {
         let observer = undefined;
 
-        if(currentLocation === location.pathname) {
+        const hash = window.location.hash;
+
+        if(currentLocation === location.pathname && !hash) {
             window.scrollTo({
                 top: 0,
                 left: 0,
                 behavior: 'smooth'
             } as unknown as ScrollOptions);
-        } else {
+        } else if(!hash) {
             window.scrollTo({
                 top: 0,
                 left: 0,
@@ -39,7 +41,6 @@ export const Header = memo(() => {
             const callback = (entries: IntersectionObserverEntry[]) => {
                 const { isIntersecting} = entries[0];
                 setIsIntersecting(isIntersecting);
-                console.log(isIntersecting);
             };
             observer = new IntersectionObserver(callback);
             observer.observe(target);

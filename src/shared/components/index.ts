@@ -5,6 +5,7 @@ import { Input } from './Input/Input';
 import { PhoneNumberInput } from './PhoneNumberInput/PhoneNumberInput';
 import { Divider } from './Divider/Divider';
 import { CustomLink, CustomLinkProps, CustomLinkVariants } from './CustomLink/CustomLink';
+import { Logo } from './Logo/Logo';
 
 export {
     Text,
@@ -19,5 +20,6 @@ export {
     Divider,
     CustomLink,
     CustomLinkProps,
-    CustomLinkVariants
+    CustomLinkVariants,
+    Logo
 }

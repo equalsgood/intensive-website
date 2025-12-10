@@ -12,6 +12,13 @@ export enum RoutePaths {
     NO_MATCH = '*',
 }
 
+export enum HomePaths {
+    PROGRAMS = '/#programs',
+    WHY_WE = '/#whyWe',
+    TESTIMONIALS = '/#testimonials',
+    TEACHERS = '/#teachers',
+}
+
 export enum Anchors {
     PHONE = 'tel:+380964562483',
     TG = 'https://t.me/tutorartembabak',

@@ -19,7 +19,7 @@ const programsConfig: Array<ProgramData> = [
 ]
 export const StudyingPrograms = () => {
     return (
-        <section className={classes.sectionContainer}>
+        <section id="programs" className={classes.sectionContainer}>
             <div className={classes.titleContainer}>
                 <Text tag="h2" classNamesProps={classes.title} variant={TextVariants.TITLE_BOLD}>
                     Обирайте учбову програму з англійської згідно Ваших потреб

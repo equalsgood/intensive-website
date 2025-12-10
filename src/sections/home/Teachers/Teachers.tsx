@@ -1,4 +1,4 @@
-import React, { RefObject, useRef, useState } from 'react';
+import React, { useState } from 'react';
 import classes from './Teachers.module.css';
 import { Button, ButtonVariants, Text, TextColor, TextWeight } from "shared/components";
 import classNames from "classnames";
@@ -33,7 +33,7 @@ export const Teachers = () => {
     }
 
     return (
-        <section className={classes.section}>
+        <section id="teachers" className={classes.section}>
             <div className={classes.titleContainer}>
                 <div className={classes.switches}>
                     <Button icon={<ArrowIcon/>} onClick={prev} type="button" variant={ButtonVariants.SWITCH} classNamesProps={classes.switch} />

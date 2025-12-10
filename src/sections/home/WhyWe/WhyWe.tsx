@@ -1,7 +1,6 @@
 import React from 'react';
 import classes from './WhyWe.module.css';
 import { Button, ButtonVariants, Text, TextVariants } from "shared/components";
-import classNames from "classnames";
 import { Reason, ReasonProps } from "./components/Reason";
 
 const whyWeConfig: Array<ReasonProps> = [
@@ -28,7 +27,7 @@ const whyWeConfig: Array<ReasonProps> = [
 
 export const WhyWe = () => {
     return (
-        <section className={classes.section}>
+        <section id="whyWe" className={classes.section}>
             <Text classNamesProps={classes.title} tag="h2" variant={TextVariants.TITLE_BOLD_REVERSED}>
                 Чому саме ми?
             </Text>

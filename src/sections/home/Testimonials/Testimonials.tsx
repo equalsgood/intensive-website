@@ -24,7 +24,7 @@ export const Testimonials = () => {
     const [nextClicked, setNextClicked] = useState(0);
     const [prevClicked, setPrevClicked] = useState(0);
     return (
-        <section className={cls.section}>
+        <section id="testimonials" className={cls.section}>
             <div className={cls.container}>
                 <Button onClick={() => setPrevClicked(prev => prev + 1)} type="button" variant={ButtonVariants.SWITCH_TRANSPARENT} icon={<ChevronIcon/>} classNamesProps={cls.left} />
                 <Button onClick={() => setNextClicked(prev => prev + 1)} type="button" variant={ButtonVariants.SWITCH_TRANSPARENT} icon={<ChevronIcon/>} classNamesProps={cls.right} />

@@ -1,6 +1,7 @@
 import React, { ReactNode } from 'react';
+import { HashLink } from 'react-router-hash-link';
 import cls from "./CustomLink.module.css";
-import { Anchors, RoutePaths } from "app/providers/AppRouter";
+import { Anchors, HomePaths, RoutePaths } from "app/providers/AppRouter";
 import { Link } from "react-router";
 import classNames from "classnames";
 
@@ -10,11 +11,12 @@ export enum CustomLinkVariants {
     TEXT = 'text',
     ANCHOR = 'anchor',
     ANCHOR_ICON = 'anchorIcon',
+    HASH = 'hash',
 }
 
 export interface CustomLinkProps {
     children: ReactNode;
-    to: RoutePaths | Anchors;
+    to: RoutePaths | Anchors | HomePaths;
     variant: CustomLinkVariants;
     classNamesProps?: string;
     hoverHandler?: (hovered: boolean) => void;
@@ -30,6 +32,20 @@ export const CustomLink = (props: CustomLinkProps) => {
     } = props;
 
     const classes = classNames(cls.link, cls[variant], classNamesProps);
+
+    if(variant === CustomLinkVariants.HASH) {
+        const scrollWithOffset = (el: HTMLElement) => {
+            const yCoordinate = el.getBoundingClientRect().top + window.pageYOffset;
+            const yOffset = -80;
+            window.scrollTo({ top: yCoordinate + yOffset, behavior: 'smooth' });
+        }
+
+        return (
+            <HashLink smooth to={to} className={classes} scroll={el => scrollWithOffset(el)}>
+                {children}
+            </HashLink>
+        )
+    }
 
     if(variant === CustomLinkVariants.ANCHOR_ICON || variant === CustomLinkVariants.ANCHOR)
         return (

@@ -25,7 +25,8 @@ type TextTags = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'span' | 'p';
 export enum TextColor {
     MAIN = 'main',
     SECOND = 'second',
-    REVERSED = 'reversed'
+    REVERSED = 'reversed',
+    TRANSPARENT = 'transparent',
 }
 
 export enum TextWeight {
@@ -48,7 +49,7 @@ interface TextProps {
     classNamesProps?: string;
 }
 export const Text = (props: TextProps) => {
-    const { tag, color, weight, children, variant, classNamesProps, width } = props;
+    const { tag, color, weight, children, variant, classNamesProps } = props;
     const classes = classNames(cls?.[variant], cls?.[color], cls?.[weight], classNamesProps);
 
     if(tag === 'h1')
