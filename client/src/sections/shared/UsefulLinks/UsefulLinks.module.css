@@ -1,0 +1,21 @@
+.section {
+    display: flex;
+    gap: 40px;
+    flex-direction: column;
+    align-items: center;
+    padding: 60px 0 100px;
+    background-color: var(--third-color);
+}
+
+.title {
+    width: var(--content-second-width);
+    font-size: 56px;
+}
+
+.links {
+    width: var(--content-second-width);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 60px;
+}

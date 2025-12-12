@@ -1,0 +1,16 @@
+.light {
+    --primary-color: #FFD749;
+    --second-color: #602B7A;
+    --second-opacity-color: rgba(96, 43, 122, 0.5);
+    --third-color: #fff;
+    --error-color: #F4363F;
+
+    --primary-shadow: #c6a7d5;
+    --second-shadow: #74458b;
+
+    --primary-text-color: #FFD749;
+    --second-text-color: #602B7A;
+    --third-text-color: #fff;
+
+    --header-bg-color: teal;
+}
