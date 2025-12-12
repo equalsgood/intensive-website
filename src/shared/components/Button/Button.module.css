@@ -15,9 +15,17 @@
     font-weight: var(--font-weight-l);
 }
 
+.action:hover {
+    background: #903fb8;
+}
+
 .action-second {
     background: var(--primary-color);
     color: var(--second-text-color);
+}
+
+.action-second:hover {
+    background: #ffe27e;
 }
 
 .switch {
@@ -36,7 +44,7 @@
     border-radius: 50%;
 }
 
-.outlinedReversed {
+.outlined-reversed {
     height: 40px;
     display: flex;
     justify-content: center;
@@ -47,6 +55,11 @@
     padding: 0 20px;
     font-size: 16px;
     font-weight: 500;
+}
+
+.outlined-reversed:hover {
+    color: var(--second-text-color);
+    background: var(--third-color);
 }
 
 .icon {

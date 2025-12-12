@@ -14,7 +14,7 @@ export const Header = memo(() => {
     const [isHome, setIsHome] = useState(location.pathname === RoutePaths.HOME);
     const [currentLocation, setCurrentLocation] = useState('');
     const [isIntersecting, setIsIntersecting] = useState(true);
-    const {changeModalVisibility} = useContext(Context);
+    const { changeModalVisibility } = useContext(Context);
 
     useEffect(() => {
         let observer = undefined;
@@ -59,7 +59,7 @@ export const Header = memo(() => {
     if(!isHome) {
         return (
             <header id="header" className={classNames(cls.fixedHeader, cls.visible)}>
-                <FixedHeaderNav/>
+                <FixedHeaderNav onClick={changeModalVisibility}/>
             </header>
         )
     }
@@ -97,7 +97,7 @@ export const Header = memo(() => {
                 </div>
             </nav>
             <div className={classNames(cls.fixedHeader, {[cls.visible]: !isIntersecting})}>
-                <FixedHeaderNav/>
+                <FixedHeaderNav onClick={changeModalVisibility}/>
             </div>
         </header>
     );

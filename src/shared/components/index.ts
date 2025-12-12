@@ -7,6 +7,7 @@ import { Divider } from './Divider/Divider';
 import { CustomLink, CustomLinkProps, CustomLinkVariants } from './CustomLink/CustomLink';
 import { Logo } from './Logo/Logo';
 import { Modal } from './Modal/Modal';
+import { Loader } from './Loader/Loader';
 
 export {
     Text,
@@ -23,5 +24,6 @@ export {
     CustomLinkProps,
     CustomLinkVariants,
     Logo,
-    Modal
+    Modal,
+    Loader
 }

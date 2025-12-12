@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import classes from './WhyWe.module.css';
 import { Button, ButtonVariants, Text, TextVariants } from "shared/components";
 import { Reason, ReasonProps } from "./components/Reason";
+import { Context } from "app/providers/ContextProvider";
 
 const whyWeConfig: Array<ReasonProps> = [
     { label: 'ЯКІСТЬ НАВЧАННЯ', details: [
@@ -26,6 +27,8 @@ const whyWeConfig: Array<ReasonProps> = [
 ];
 
 export const WhyWe = () => {
+    const { changeModalVisibility } = useContext(Context);
+
     return (
         <section id="whyWe" className={classes.section}>
             <Text classNamesProps={classes.title} tag="h2" variant={TextVariants.TITLE_BOLD_REVERSED}>
@@ -34,7 +37,7 @@ export const WhyWe = () => {
             <div className={classes.reasonsContainer}>
                 <div className={classes.biggest}>
                     <Reason label={whyWeConfig[0].label} details={whyWeConfig[0].details}/>
-                    <Button classNamesProps={classes.button} type="button" variant={ButtonVariants.ACTION_SECOND} text="Переконайтесь самостійно"/>
+                    <Button onClick={() => changeModalVisibility(true)} classNamesProps={classes.button} type="button" variant={ButtonVariants.ACTION_SECOND} text="Переконайтесь самостійно"/>
                 </div>
                 { whyWeConfig.slice(1).map(({label, details}) =>
                     <Reason label={label.toUpperCase()} details={details} key={label}/>

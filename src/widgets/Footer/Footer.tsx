@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import cls from './Footer.module.css';
 import {
     Button,
@@ -19,9 +19,12 @@ import TelegramIcon from "shared/assets/icons/social/tg.svg";
 import WhatsUpIcon from "shared/assets/icons/social/wup.svg";
 import ViberIcon from "shared/assets/icons/social/viber.svg";
 import InstIcon from "shared/assets/icons/social/inst.svg";
+import { Context } from "app/providers/ContextProvider";
 
 export const Footer = () => {
     const year = new Date().getFullYear();
+    const { changeModalVisibility } = useContext(Context);
+
     return (
         <footer className={cls.footer}>
             <nav className={cls.nav}>
@@ -125,7 +128,7 @@ export const Footer = () => {
                             <br/>та ми самі Вам зателефонуємо
                         </Text>
                         <Button classNamesProps={cls.button} type="button" variant={ButtonVariants.ACTION_SECOND}
-                                text="Замовити дзвінок"/>
+                                text="Замовити дзвінок" onClick={() => changeModalVisibility(true)}/>
                     </div>
                     <div className={cls.rights}>
                         <Text tag="span" color={TextColor.REVERSED} weight={TextWeight.NORMAL}>

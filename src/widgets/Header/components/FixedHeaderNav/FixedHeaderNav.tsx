@@ -5,7 +5,11 @@ import { Button, ButtonVariants, CustomLink, CustomLinkVariants } from "shared/c
 import { Anchors, RoutePaths } from "app/providers/AppRouter";
 import TgIcon from "shared/assets/icons/social/tg-transparent.svg";
 
-export const FixedHeaderNav = () => {
+interface FixedHeaderNavProps {
+    onClick: (val: boolean) => void;
+}
+
+export const FixedHeaderNav = ({onClick}: FixedHeaderNavProps) => {
     return (
         <nav className={cls.fullNav}>
             <div className={cls.fullMainNav}>
@@ -31,7 +35,7 @@ export const FixedHeaderNav = () => {
                     <TgIcon/>
                 </CustomLink>
                 <Button type="button" variant={ButtonVariants.ACTION} text="Записатись на заняття"
-                        classNamesProps={cls.button}/>
+                        classNamesProps={cls.button} onClick={() => onClick(true)}/>
             </div>
         </nav>
     );

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import classes from './HomeIntroduction.module.css';
 import { Button, ButtonVariants, Text, TextVariants } from "shared/components";
 import studentImage1 from 'shared/assets/images/student-1.png';
@@ -11,11 +11,13 @@ import feature4 from 'shared/assets/images/feature-4.png';
 import backgroundVideo from 'shared/assets/videos/background-video-1.mp4';
 import classNames from "classnames";
 import { SingleFeature } from "sections/home/HomeIntroduction/components/SingleFeature";
+import { Context } from "app/providers/ContextProvider";
 
 export const HomeIntroduction = () => {
     const images = [studentImage1, studentImage2, studentImage3];
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
     const [appear, setAppear] = useState(true);
+    const { changeModalVisibility } = useContext(Context);
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -42,7 +44,7 @@ export const HomeIntroduction = () => {
                     <Text tag='p' classNamesProps={classes.subtitle} variant={TextVariants.SUBTITLE}>Разом з
                         репетиторським центром для дітей та студентів "Інтенсив"</Text>
                     <Button classNamesProps={classes.button} type='button' variant={ButtonVariants.ACTION}
-                            text='Спробувати безкоштовно'></Button>
+                            text='Спробувати безкоштовно' onClick={() => changeModalVisibility(true)}></Button>
                 </div>
                 <div className={classes.imageContainer}>
                     <img className={classNames(classes.image, {[classes.appear]: appear})}
