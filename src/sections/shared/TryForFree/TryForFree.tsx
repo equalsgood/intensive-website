@@ -1,4 +1,4 @@
-import React, { ChangeEvent, FormEvent, useState } from 'react';
+import React, { ChangeEvent, FormEvent, useContext, useState } from 'react';
 import validator from 'validator';
 import cls from './TryForFree.module.css';
 import { Button, ButtonVariants, Input, PhoneNumberInput, Text, TextColor, TextWeight } from "shared/components";
@@ -9,6 +9,9 @@ import step3 from 'shared/assets/images/steps/step3.png';
 import CheckIcon from 'shared/assets/icons/check.svg';
 import { E164Number } from "libphonenumber-js";
 import { isPossiblePhoneNumber, parsePhoneNumber } from 'react-phone-number-input'
+import classNames from "classnames";
+import CrossIcon from "shared/assets/icons/cross.svg";
+import { Context } from "app/providers/ContextProvider";
 
 const stepsConfig: Array<StepProps> = [
     { img: step1, text: 'Передзвонимо та відповимо на всі запитання' },
@@ -16,8 +19,13 @@ const stepsConfig: Array<StepProps> = [
     { img: step3, text: 'Після розрахуємо фінальну вартість з урахуванням можливих пільг, поточних знижок та обраного пакету' }
 ]
 
-export const TryForFree = () => {
-    const [submitted, setSubmitted] = useState(true);
+interface TryForFreeProps {
+    isModal: boolean;
+    onClose?: (val: boolean) => void;
+}
+
+export const TryForFree = ({ isModal, onClose }: TryForFreeProps) => {
+    const { isSubmitted, changeSubmittedStatus } = useContext(Context);
     const [name, setName] = useState('');
     const [isNameValid, setIsNameValid] = useState(undefined);
     const [phone, setPhone] = useState<E164Number>();
@@ -66,7 +74,7 @@ export const TryForFree = () => {
             return;
 
         console.log(name, phone, email, area);
-        setSubmitted(true);
+        changeSubmittedStatus(true);
         setName('');
         setIsNameValid(undefined);
         setPhone('' as E164Number);
@@ -74,13 +82,21 @@ export const TryForFree = () => {
         setEmail('');
         setIsEmailValid(undefined);
         setArea('');
+        if(isModal)
+            onClose(false);
     }
 
     return (
-        <section className={cls.section}>
-            <Text tag="h2" color={TextColor.MAIN} weight={TextWeight.EXTRA_BOLD} classNamesProps={cls.title}>Спробуйте безкоштовно!</Text>
+        <section className={classNames(cls.section, {[cls.modal]: isModal})}>
+            {isModal
+                ? <div className={cls.titleContainer}>
+                    <Text tag="h2" color={TextColor.MAIN} weight={TextWeight.EXTRA_BOLD} classNamesProps={cls.title}>Спробуйте безкоштовно!</Text>
+                    <Button onClick={() => onClose(false)} type="button" variant={ButtonVariants.ICON} icon={<CrossIcon/>}/>
+                </div>
+                : <Text tag="h2" color={TextColor.MAIN} weight={TextWeight.EXTRA_BOLD} classNamesProps={cls.title}>Спробуйте безкоштовно!</Text>
+            }
             <div className={cls.content}>
-                {!submitted
+                {!isSubmitted
                     ? <form onSubmit={(e) => submitHandler(e)} className={cls.formContainer}>
                         <Input label="Ім'я" id="input-name" type="text" value={name} onChange={onNameChange}
                                isValid={isNameValid} invalidMessage="Введіть ім'я"/>
@@ -113,7 +129,7 @@ export const TryForFree = () => {
                         </div>
                         <CheckIcon className={cls.check}/>
                         <Button type="button" variant={ButtonVariants.ACTION_SECOND} classNamesProps={cls.button}
-                                text="Повернутись" onClick={() => setSubmitted(false)}/>
+                                text="Повернутись" onClick={() => changeSubmittedStatus(false)}/>
                     </div>
                 }
                 <div className={cls.descriptionContainer}>

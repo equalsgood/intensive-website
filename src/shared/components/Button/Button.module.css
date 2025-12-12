@@ -48,3 +48,20 @@
     font-size: 16px;
     font-weight: 500;
 }
+
+.icon {
+    padding: 4px;
+    border-radius: 12px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(96, 43, 122, 0.2);
+    color: var(--second-color);
+    transition: all 0.3s;
+}
+
+.icon:hover {
+    transform: scale(1.2);
+}

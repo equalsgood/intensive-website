@@ -1,11 +1,17 @@
 import { createContext, ReactNode, useState } from "react";
 
 export interface ContextSchema {
-    isMobile: boolean;
+    isModalVisible: boolean;
+    changeModalVisibility: (value: boolean) => void;
+    isSubmitted: boolean;
+    changeSubmittedStatus: (value: boolean) => void;
 }
 
 const defaultValue: ContextSchema = {
-    isMobile: false,
+    isModalVisible: false,
+    changeModalVisibility: (value) => {},
+    isSubmitted: false,
+    changeSubmittedStatus: (value) => {},
 }
 
 export const Context = createContext(defaultValue);
@@ -15,11 +21,22 @@ interface ContextProviderProps {
 }
 
 export const ContextProvider = ({ children }: ContextProviderProps) => {
-    const [isMobile, setIsMobile] = useState(false);
+    const [isModalVisible, setIsModalVisible] = useState(false);
+    const [isSubmitted, setIsSubmitted] = useState(false);
 
+    const changeModalVisibility = (value: boolean) => {
+        setIsModalVisible(value);
+    };
+
+    const changeSubmittedStatus = (value: boolean) => {
+        setIsSubmitted(value);
+    };
 
     const contextValue: ContextSchema = {
-        isMobile,
+        isModalVisible,
+        changeModalVisibility,
+        isSubmitted,
+        changeSubmittedStatus
     }
 
     return (

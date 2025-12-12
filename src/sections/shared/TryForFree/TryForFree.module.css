@@ -7,8 +7,19 @@
     gap: 48px;
 }
 
+.section.modal {
+    width: 1000px;
+    padding: 0;
+}
+
+.title-container {
+    width: 1000px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
 .title {
-    width: var(--content-second-width);
     font-size: 56px;
 }
 
@@ -16,6 +27,11 @@
     display: flex;
     width: var(--content-second-width);
     justify-content: space-around;
+}
+
+.modal .content {
+    width: 100%;
+    justify-content: space-between;
 }
 
 .form-container, .submitted {

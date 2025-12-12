@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter } from "react-router";
 import { AppRouter } from "./providers/AppRouter";
 import './styles/index.css';
-import { Footer, Header } from "widgets";
+import { Footer, Header, ModalHandler } from "widgets";
 import { ContextProvider } from "app/providers/ContextProvider";
 
 const App = () => {
@@ -13,6 +13,7 @@ const App = () => {
                     <Header/>
                     <AppRouter/>
                     <Footer/>
+                    <ModalHandler/>
                 </div>
             </ContextProvider>
         </BrowserRouter>

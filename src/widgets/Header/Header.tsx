@@ -1,4 +1,4 @@
-import React, { memo, useEffect, useState } from 'react';
+import React, { memo, useContext, useEffect, useState } from 'react';
 import cls from './Header.module.css';
 import { useLocation } from "react-router";
 import { Anchors, RoutePaths } from "app/providers/AppRouter";
@@ -7,12 +7,14 @@ import { Logo } from "shared/components";
 import TgIcon from "shared/assets/icons/social/tg-transparent.svg";
 import { Button, ButtonVariants, CustomLink, CustomLinkVariants } from "shared/components";
 import { FixedHeaderNav } from "./components/FixedHeaderNav/FixedHeaderNav";
+import { Context } from "app/providers/ContextProvider";
 
 export const Header = memo(() => {
     const location = useLocation();
     const [isHome, setIsHome] = useState(location.pathname === RoutePaths.HOME);
     const [currentLocation, setCurrentLocation] = useState('');
     const [isIntersecting, setIsIntersecting] = useState(true);
+    const {changeModalVisibility} = useContext(Context);
 
     useEffect(() => {
         let observer = undefined;
@@ -86,7 +88,12 @@ export const Header = memo(() => {
                     <CustomLink to={Anchors.TG} variant={CustomLinkVariants.ANCHOR_ICON} classNamesProps={cls.icon}>
                         <TgIcon/>
                     </CustomLink>
-                    <Button type="button" variant={ButtonVariants.OUTLINED_REVERSED} text="Записатись"/>
+                    <Button
+                        type="button"
+                        variant={ButtonVariants.OUTLINED_REVERSED}
+                        text="Записатись"
+                        onClick={() => changeModalVisibility(true)}
+                    />
                 </div>
             </nav>
             <div className={classNames(cls.fixedHeader, {[cls.visible]: !isIntersecting})}>

@@ -6,6 +6,7 @@ import { PhoneNumberInput } from './PhoneNumberInput/PhoneNumberInput';
 import { Divider } from './Divider/Divider';
 import { CustomLink, CustomLinkProps, CustomLinkVariants } from './CustomLink/CustomLink';
 import { Logo } from './Logo/Logo';
+import { Modal } from './Modal/Modal';
 
 export {
     Text,
@@ -21,5 +22,6 @@ export {
     CustomLink,
     CustomLinkProps,
     CustomLinkVariants,
-    Logo
+    Logo,
+    Modal
 }

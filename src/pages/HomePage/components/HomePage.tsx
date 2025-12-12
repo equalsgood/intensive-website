@@ -21,7 +21,7 @@ const HomePage = () => {
             <WhyWe/>
             <Teachers/>
             <Testimonials/>
-            <TryForFree/>
+            <TryForFree isModal={false}/>
             <Divider/>
             <UsefulLinks links={linksConfig}/>
         </main>
