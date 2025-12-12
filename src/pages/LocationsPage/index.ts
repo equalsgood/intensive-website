@@ -1,1 +1,0 @@
-export { LocationsPageAsync as LocationsPage } from './components/LocationsPage.async';

@@ -1,1 +1,0 @@
-export { ContactsPageAsync as ContactsPage } from './components/ContactsPage.async';

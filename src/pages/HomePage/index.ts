@@ -1,1 +1,0 @@
-export { HomePageAsync as HomePage } from './components/HomePage.async';
