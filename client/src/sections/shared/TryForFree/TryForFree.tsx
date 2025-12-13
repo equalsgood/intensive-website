@@ -12,6 +12,7 @@ import { isPossiblePhoneNumber, parsePhoneNumber } from 'react-phone-number-inpu
 import classNames from "classnames";
 import CrossIcon from "shared/assets/icons/cross.svg";
 import { Context } from "app/providers/ContextProvider";
+import { createBid } from "api/api";
 
 const stepsConfig: Array<StepProps> = [
     { img: step1, text: 'Передзвонимо та відповимо на всі запитання' },
@@ -63,7 +64,7 @@ export const TryForFree = ({ isModal, onClose }: TryForFreeProps) => {
         setArea(value);
     }
 
-    const submitHandler = (e: FormEvent) => {
+    const submitHandler = async (e: FormEvent) => {
         e.preventDefault();
         if(name.length < 3) {
             setIsNameValid(false);
@@ -73,7 +74,9 @@ export const TryForFree = ({ isModal, onClose }: TryForFreeProps) => {
         if(!isNameValid || !isPhoneValid || !isEmailValid)
             return;
 
-        console.log(name, phone, email, area);
+        await createBid({
+            name, phone, email, desc: area
+        });
         changeSubmittedStatus(true);
         setName('');
         setIsNameValid(undefined);
