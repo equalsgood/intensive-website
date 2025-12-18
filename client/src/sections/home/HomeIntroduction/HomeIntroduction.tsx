@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import classes from './HomeIntroduction.module.css';
-import { Button, ButtonVariants, Text, TextVariants } from "shared/components";
+import { Button, ButtonVariants, Text, TextColor, TextWeight } from "shared/components";
 import studentImage1 from 'shared/assets/images/student-1.png';
 import studentImage2 from 'shared/assets/images/student-2.png';
 import studentImage3 from 'shared/assets/images/student-3.png';
@@ -40,8 +40,8 @@ export const HomeIntroduction = () => {
         <section className={classes.intro}>
             <div className={classes.container}>
                 <div className={classes.action}>
-                    <Text tag='h1' variant={TextVariants.TITLE}>Якісне навчання з великою посмішкою</Text>
-                    <Text tag='p' classNamesProps={classes.subtitle} variant={TextVariants.SUBTITLE}>Разом з
+                    <Text tag='h1' color={TextColor.MAIN} weight={TextWeight.BOLD}>Якісне навчання англійської у місті Дніпро</Text>
+                    <Text tag='p' classNamesProps={classes.subtitle} weight={TextWeight.SEMI_BOLD} color={TextColor.MAIN}>Разом з
                         репетиторським центром для дітей та студентів "Інтенсив"</Text>
                     <Button classNamesProps={classes.button} type='button' variant={ButtonVariants.ACTION}
                             text='Спробувати безкоштовно' onClick={() => changeModalVisibility(true)}></Button>
