@@ -18,8 +18,8 @@
     --content-z-index: 2;
 }
 
-/*@media(max-width: 1279px) {*/
-/*    :root {*/
-/*        --content-width: 800px;*/
-/*    }*/
-/*}*/
+@media(max-width: 1279px) {
+    :root {
+        --content-second-width: 1024px;
+    }
+}
