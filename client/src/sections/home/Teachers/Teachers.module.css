@@ -8,7 +8,8 @@
 }
 
 .title-container {
-    width: var(--content-second-width);
+    width: 100%;
+    max-width: var(--content-second-width);
     display: flex;
     justify-content: center;
     position: relative;
@@ -102,18 +103,16 @@
 
 .content {
     display: flex;
-    gap: 35px;
     width: var(--content-second-width);
     height: 390px;
+    justify-content: space-between;
 }
 
 .text-container {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    width: 415px;
-    padding-right: 35px;
-    border-right: var(--primary-color) solid 2px;
+    width: 378px;
 }
 
 .text-container h2 {
@@ -123,6 +122,12 @@
 
 .text-container p {
     font-size: 20px;
+}
+
+.divider {
+    height: 100%;
+    width: 2px;
+    border-right: var(--primary-color) solid 2px;
 }
 
 .teachers-wrapper {
@@ -178,4 +183,146 @@
 
 .badge span {
     font-size: 14px;
+}
+
+@media (max-width: 1279px) {
+    .section {
+        gap: 80px;
+        background: var(--third-color);
+        padding: 60px 30px 80px;
+    }
+
+    .title-container {
+        justify-content: flex-start;
+        padding-left: 23px;
+    }
+
+    .content {
+        width: 100%;
+        max-width: var(--content-second-width);
+        height: 380px;
+    }
+
+    .text-container {
+        flex-shrink: 0;
+        gap: 16px;
+    }
+
+    .teachers-wrapper {
+        width: 492px;
+    }
+}
+
+@media (max-width: 1000px) {
+    .text-container {
+        width: 360px;
+    }
+}
+
+@media (max-width: 959px) {
+    .section {
+        gap: 24px;
+        padding: 47px 26px 64px;
+    }
+
+    .switches {
+        top: unset;
+        bottom: 420px;
+    }
+
+    .content {
+        flex-direction: column;
+        height: max-content;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+        position: relative;
+    }
+
+    .text-container {
+        width: 100%;
+        gap: 8px;
+    }
+
+    .text-container h2 {
+        font-size: 38px;
+        line-height: 38px;
+    }
+
+    .text-container p {
+        width: 80%;
+        font-size: 16px;
+    }
+
+    .teachers-wrapper {
+        width: 100%;
+        height: 380px;
+    }
+}
+
+@media (max-width: 639px) {
+    .title-container {
+        width: 100%;
+        justify-content: center;
+        padding: 0 23px;
+    }
+
+    .label-container {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .label-wrapper {
+        padding: 4px 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex: 1;
+        position: relative;
+    }
+
+    .purple::after, .yellow::after {
+        height: 26px;
+        width: 26px;
+        top: 6px;
+    }
+
+    .purple::after {
+        left: -13px;
+    }
+
+    .yellow::after {
+        right: -13px;
+    }
+
+    .label-text {
+        font-size: 24px;
+        letter-spacing: 1px;
+    }
+
+    .content {
+        align-items: flex-start;
+    }
+
+    .text-container h2 {
+        font-size: 32px;
+        line-height: 32px;
+    }
+
+    .text-container p {
+        width: 100%;
+        font-size: 16px;
+    }
+
+    .text-container p:last-child {
+        width: 68%;
+    }
+
+    .switch {
+        height: 40px;
+        width: 40px;
+        transition: transform 0.2s;
+    }
 }

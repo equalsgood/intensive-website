@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import classes from './Teachers.module.css';
 import { Button, ButtonVariants, Text, TextColor, TextWeight } from "shared/components";
 import classNames from "classnames";
@@ -10,6 +10,7 @@ import teacher4 from 'shared/assets/images/teachers/teacher4.png';
 import teacher5 from 'shared/assets/images/teachers/teacher5.png';
 import ArrowIcon from 'shared/assets/icons/arrow.svg';
 import { Carousel } from 'shared/components';
+import { Context } from "app/providers/ContextProvider";
 
 const englishSubject: ISubject = { title: 'Англійська мова', bgColor: '#D6FBBD'};
 const teachersConfig: Array<TeacherProps> = [
@@ -22,6 +23,7 @@ const teachersConfig: Array<TeacherProps> = [
 
 export const Teachers = () => {
     // const singleStep = 258;
+    const { isTablet } = useContext(Context);
     const [nextClicked, setNextClicked] = useState(0);
     const [prevClicked, setPrevClicked] = useState(0);
     const next = () => {
@@ -35,10 +37,14 @@ export const Teachers = () => {
     return (
         <section id="teachers" className={classes.section}>
             <div className={classes.titleContainer}>
-                <div className={classes.switches}>
-                    <Button icon={<ArrowIcon/>} onClick={prev} type="button" variant={ButtonVariants.SWITCH} classNamesProps={classes.switch} />
-                    <Button icon={<ArrowIcon/>} onClick={next} type="button" variant={ButtonVariants.SWITCH} classNamesProps={classNames(classes.switch, classes.right)} />
-                </div>
+                {!isTablet &&
+                    <div className={classes.switches}>
+                        <Button icon={<ArrowIcon/>} onClick={prev} type="button" variant={ButtonVariants.SWITCH}
+                                classNamesProps={classes.switch}/>
+                        <Button icon={<ArrowIcon/>} onClick={next} type="button" variant={ButtonVariants.SWITCH}
+                                classNamesProps={classNames(classes.switch, classes.right)}/>
+                    </div>
+                }
                 <div className={classes.labelContainer}>
                     <div className={classNames(classes.labelWrapper, classes.purple)}>
                         <Text classNamesProps={classes.labelText} tag="span" color={TextColor.SECOND}
@@ -51,13 +57,26 @@ export const Teachers = () => {
                 </div>
             </div>
             <div className={classes.content}>
+                {isTablet &&
+                    <div className={classes.switches}>
+                        <Button icon={<ArrowIcon/>} onClick={prev} type="button" variant={ButtonVariants.SWITCH}
+                                classNamesProps={classes.switch}/>
+                        <Button icon={<ArrowIcon/>} onClick={next} type="button" variant={ButtonVariants.SWITCH}
+                                classNamesProps={classNames(classes.switch, classes.right)}/>
+                    </div>
+                }
                 <div className={classes.textContainer}>
-                    <Text tag="h2" color={TextColor.MAIN} weight={TextWeight.EXTRA_BOLD}>ЗНАЄМО,<br/>ЯК НАВЧАТИ</Text>
+                    {isTablet
+                        ? <Text tag="h2" color={TextColor.MAIN} weight={TextWeight.EXTRA_BOLD}>ЗНАЄМО, ЯК НАВЧАТИ</Text>
+                        : <Text tag="h2" color={TextColor.MAIN} weight={TextWeight.EXTRA_BOLD}>ЗНАЄМО,<br/>ЯК
+                            НАВЧАТИ</Text>
+                    }
                     <Text tag="p" color={TextColor.MAIN} weight={TextWeight.MEDIUM}>Наші викладачі розкажуть, як
                         підготуватися до іспитів, допоможуть упоратися зі складним завданням і перемогти на
-                        олімпіаді</Text>
+                        олімпіаді.</Text>
                     <Text tag="p" color={TextColor.MAIN} weight={TextWeight.MEDIUM}>Пояснять про підводні камені іспитів та найпоширеніші помилки, а також розкажуть, як їх уникнути.</Text>
                 </div>
+                {!isTablet && <div className={classes.divider}/>}
                 <Carousel
                     nextClicked={nextClicked}
                     prevClicked={prevClicked}

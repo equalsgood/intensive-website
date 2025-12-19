@@ -5,6 +5,12 @@ export interface ContextSchema {
     changeModalVisibility: (value: boolean) => void;
     isSubmitted: boolean;
     changeSubmittedStatus: (value: boolean) => void;
+    mobileBreakpoint: number,
+    isMobile: boolean,
+    tabletBreakpoint: number,
+    isTablet: boolean,
+    screenWidth: number,
+    onResize: (width: number) => void;
 }
 
 const defaultValue: ContextSchema = {
@@ -12,6 +18,12 @@ const defaultValue: ContextSchema = {
     changeModalVisibility: (value) => {},
     isSubmitted: false,
     changeSubmittedStatus: (value) => {},
+    isMobile: false,
+    isTablet: false,
+    mobileBreakpoint: 640,
+    tabletBreakpoint: 960,
+    screenWidth: window.innerWidth,
+    onResize: (width) => {},
 }
 
 export const Context = createContext(defaultValue);
@@ -21,6 +33,11 @@ interface ContextProviderProps {
 }
 
 export const ContextProvider = ({ children }: ContextProviderProps) => {
+    const mobileBreakpoint = 640;
+    const tabletBreakpoint = 960;
+    const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+    const [isMobile, setIsMobile] = useState(false);
+    const [isTablet, setIsTablet] = useState(false);
     const [isModalVisible, setIsModalVisible] = useState(false);
     const [isSubmitted, setIsSubmitted] = useState(false);
 
@@ -32,11 +49,31 @@ export const ContextProvider = ({ children }: ContextProviderProps) => {
         setIsSubmitted(value);
     };
 
+    const resizeHandler = (width: number) => {
+        if(width < mobileBreakpoint) {
+            setIsMobile(true);
+        } else {
+            setIsMobile(false);
+        }
+        if(width < tabletBreakpoint) {
+            setIsTablet(true);
+        } else {
+            setIsTablet(false);
+        }
+        setScreenWidth(width);
+    };
+
     const contextValue: ContextSchema = {
         isModalVisible,
         changeModalVisibility,
         isSubmitted,
-        changeSubmittedStatus
+        changeSubmittedStatus,
+        mobileBreakpoint,
+        isMobile,
+        screenWidth,
+        onResize: resizeHandler,
+        tabletBreakpoint,
+        isTablet
     }
 
     return (
