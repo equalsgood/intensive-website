@@ -5,13 +5,14 @@ import { Text, TextColor, TextWeight } from "shared/components";
 export interface TestimonialProps {
     author: string,
     text: string,
-    img: string
+    img: string,
+    width?: number
 }
 
 export const Testimonial = (props: TestimonialProps) => {
-    const { author, img, text } = props;
+    const { author, img, text, width } = props;
     return (
-        <li className={cls.testimonialContainer}>
+        <li className={cls.testimonialContainer} style={{width: width}}>
             <div className={cls.quote}>
                 <Text classNamesProps={cls.quoteText} tag="p" color={TextColor.REVERSED}
                       weight={TextWeight.MEDIUM}>{text}</Text>

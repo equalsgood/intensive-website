@@ -115,3 +115,133 @@
 
 }
 
+@media (max-width: 1279px) {
+    .section {
+        padding: 56px 40px 80px;
+    }
+
+    .container {
+        width: 100%;
+        max-width: var(--content-second-width);
+        padding: 0;
+    }
+
+    .left, .right {
+        width: 80px;
+        height: 80px;
+        top: 50%;
+    }
+
+    .left {
+        left: 0;
+        transform: translate(-24px, -50%);
+    }
+
+    .right {
+        right: 0;
+        transform: translate(24px, -50%) rotate(180deg);
+    }
+
+    .left:hover, .right:hover {
+        color: var(--primary-color);
+    }
+
+    .left:active, .right:active {
+        color: var(--third-color);
+    }
+
+    .title {
+        font-size: 40px;
+    }
+
+    .carousel-wrapper {
+        height: max-content;
+        margin: 0 60px;
+    }
+
+    .carousel-container {
+        gap: 44px;
+        height: max-content;
+    }
+
+    .testimonial-container {
+        flex-shrink: 0;
+    }
+}
+
+@media (max-width: 959px) {
+    .section {
+        padding: 47px 26px 60px;
+    }
+
+    .left, .right {
+        width: 60px;
+        height: 60px;
+        top: 50%;
+    }
+
+    .left {
+        left: 0;
+        transform: translate(-19px, -50%);
+    }
+
+    .right {
+        right: 0;
+        transform: translate(19px, -50%) rotate(180deg);
+    }
+
+    .title {
+        font-size: 32px;
+        line-height: 32px;
+    }
+
+    .carousel-wrapper {
+        margin: 0 40px;
+    }
+
+    .carousel-container {
+        gap: 24px;
+    }
+
+    .testimonial-container {
+        gap: 32px;
+    }
+
+    .quote {
+        padding: 20px 26px;
+        width: 100%;
+        border: var(--primary-color) solid 6px;
+    }
+
+    .quote-text {
+        font-size: 18px;
+    }
+
+    .mark {
+        width: 30px;
+        height: 30px;
+        bottom: -21px;
+        left: 60px;
+    }
+
+    .inline {
+        top: -6px;
+        left: -6px;
+    }
+
+    .author {
+        gap: 14px;
+        height: max-content;
+        padding-left: 48px;
+        flex-grow: 0;
+    }
+
+    .author img {
+        height: 68px;
+    }
+
+    .author span {
+        font-size: 18px;
+
+    }
+}

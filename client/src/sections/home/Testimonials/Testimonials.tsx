@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import cls from './Testimonials.module.css';
 import { Button, ButtonVariants, Carousel, Text, TextColor, TextWeight } from "shared/components";
 import { Testimonial, TestimonialProps } from "./components/Testimonial";
 import author1 from 'shared/assets/images/testimonial-authors/testimonial-author-1.png';
 import ChevronIcon from 'shared/assets/icons/chevron.svg';
+import { Context } from "app/providers/ContextProvider";
 
 const testimonialsConfig: Array<TestimonialProps> = [
     { author: 'Олена, мама Софії', img: author1, text: 'Дуже вдячна центру за якісні уроки англійської. Софія завжди повертається із занять натхнена, розповідає про нові слова й ігри, які допомагають краще запам’ятовувати матеріал. Найголовніше — у неї з’явилося щире бажання вчити мову.' },
@@ -21,8 +22,35 @@ const testimonialsConfig: Array<TestimonialProps> = [
 ];
 
 export const Testimonials = () => {
+    const { screenWidth } = useContext(Context);
+    const [singleStep, setSingleStep] = useState(550);
+    const [singleItemWidth, setSingleItemWidth] = useState(450);
     const [nextClicked, setNextClicked] = useState(0);
     const [prevClicked, setPrevClicked] = useState(0);
+
+    useEffect(() => {
+        if(screenWidth >= 1280) {
+            setSingleStep(550);
+            setSingleItemWidth(450);
+        }
+        else if(screenWidth < 1280 && screenWidth >= 960) {
+            let itemSize = (screenWidth - 80 - 120 - 44) / 2;
+            itemSize = itemSize > 430 ? 430 : itemSize;
+            setSingleStep(itemSize + 44);
+            setSingleItemWidth(itemSize);
+        } else if(screenWidth < 960 && screenWidth >= 640) {
+            let itemSize = (screenWidth - 52 - 80 - 24) / 2;
+            itemSize = itemSize > 430 ? 430 : itemSize;
+            setSingleStep(itemSize + 24);
+            setSingleItemWidth(itemSize);
+        } else if(screenWidth < 640) {
+            let itemSize = (screenWidth - 52 - 80);
+            // itemSize = itemSize > 430 ? 430 : itemSize;
+            setSingleStep(itemSize + 24);
+            setSingleItemWidth(itemSize);
+        }
+
+    }, [screenWidth]);
     return (
         <section id="testimonials" className={cls.section}>
             <div className={cls.container}>
@@ -31,12 +59,14 @@ export const Testimonials = () => {
                 <Text tag="h2" weight={TextWeight.EXTRA_BOLD} color={TextColor.REVERSED}
                       classNamesProps={cls.title}>Відгуки</Text>
                 <Carousel
+                    adjusted
+                    id="testimonials-carousel"
                     carouselItems={
                         testimonialsConfig.map(({author, img, text}) =>
-                            <Testimonial author={author} text={text} img={img} key={author}/>
+                            <Testimonial width={singleItemWidth} author={author} text={text} img={img} key={author}/>
                         )
                     }
-                    singleStep={550}
+                    singleStep={singleStep}
                     wrapperSizesClass={cls.carouselWrapper}
                     containerPropsClass={cls.carouselContainer}
                     nextClicked={nextClicked}

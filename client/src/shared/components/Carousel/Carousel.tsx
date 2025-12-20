@@ -9,10 +9,12 @@ interface CarouselProps {
     containerPropsClass: string;
     nextClicked: number;
     prevClicked: number;
+    id?: string;
+    adjusted?: boolean;
 }
 
 export const Carousel = (props: CarouselProps) => {
-    const { carouselItems, singleStep, wrapperSizesClass, containerPropsClass, prevClicked, nextClicked } = props;
+    const { carouselItems, id, adjusted, singleStep, wrapperSizesClass, containerPropsClass, prevClicked, nextClicked } = props;
 
     const [firstOffset, setFirstOffset] = useState(-singleStep * carouselItems.length)
     const [secondOffset, setSecondOffset] = useState(0)
@@ -22,6 +24,11 @@ export const Carousel = (props: CarouselProps) => {
     const secondRef = useRef<HTMLDivElement>(null);
     const thirdRef = useRef<HTMLDivElement>(null);
 
+    useEffect(() => {
+        setFirstOffset(-singleStep * carouselItems.length)
+        setSecondOffset(0)
+        setThirdOffset(singleStep * carouselItems.length)
+    }, [singleStep]);
     const offsetCount = (prevState: number, isNext: boolean, ref: RefObject<HTMLDivElement>, step: number) => {
         let newOffset = isNext ? prevState - step : prevState + step;
         if(Math.abs(newOffset) > singleStep * (carouselItems.length + 1)) {
@@ -123,7 +130,7 @@ export const Carousel = (props: CarouselProps) => {
             onTouchCancel={onDragEnd}
             className={classNames(cls.wrapper, wrapperSizesClass, {[cls.dragged]: mouseDownCord !== 0})}
         >
-            <div ref={firstRef} style={{left: `${firstOffset}px`}} className={classNames(cls.container, containerPropsClass)}>
+            <div id={id} ref={firstRef} style={{left: `${firstOffset}px`}} className={classNames(cls.container, containerPropsClass)}>
                 {[...carouselItems]}
             </div>
             <div ref={secondRef} style={{left: `${secondOffset}px`}} className={classNames(cls.container, containerPropsClass)}>
@@ -132,6 +139,14 @@ export const Carousel = (props: CarouselProps) => {
             <div ref={thirdRef} style={{left: `${thirdOffset}px`}} className={classNames(cls.container, containerPropsClass)}>
                 {[...carouselItems]}
             </div>
+            {adjusted &&
+                <div
+                    style={{opacity: 0, position: 'relative', pointerEvents: 'none', visibility: 'hidden'}}
+                    className={classNames(cls.container, containerPropsClass)}
+                >
+                    {[...carouselItems]}
+                </div>
+            }
         </div>
     );
 };
