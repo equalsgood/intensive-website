@@ -9,12 +9,11 @@ interface CarouselProps {
     containerPropsClass: string;
     nextClicked: number;
     prevClicked: number;
-    id?: string;
     adjusted?: boolean;
 }
 
 export const Carousel = (props: CarouselProps) => {
-    const { carouselItems, id, adjusted, singleStep, wrapperSizesClass, containerPropsClass, prevClicked, nextClicked } = props;
+    const { carouselItems, adjusted, singleStep, wrapperSizesClass, containerPropsClass, prevClicked, nextClicked } = props;
 
     const [firstOffset, setFirstOffset] = useState(-singleStep * carouselItems.length)
     const [secondOffset, setSecondOffset] = useState(0)
@@ -130,7 +129,7 @@ export const Carousel = (props: CarouselProps) => {
             onTouchCancel={onDragEnd}
             className={classNames(cls.wrapper, wrapperSizesClass, {[cls.dragged]: mouseDownCord !== 0})}
         >
-            <div id={id} ref={firstRef} style={{left: `${firstOffset}px`}} className={classNames(cls.container, containerPropsClass)}>
+            <div ref={firstRef} style={{left: `${firstOffset}px`}} className={classNames(cls.container, containerPropsClass)}>
                 {[...carouselItems]}
             </div>
             <div ref={secondRef} style={{left: `${secondOffset}px`}} className={classNames(cls.container, containerPropsClass)}>

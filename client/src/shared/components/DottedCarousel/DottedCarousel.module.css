@@ -1,0 +1,58 @@
+.carousel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+}
+
+.dots {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--second-color);
+}
+
+.selected-dot {
+    width: 14px;
+    height: 14px;
+    border: 12px solid var(--second-color);
+    background: var(--third-color);
+}
+
+.reversed .dot {
+    background: var(--third-color);
+}
+
+.reversed .selected-dot {
+    border: 2px solid var(--third-color);
+    background: var(--second-color);
+}
+
+.wrapper {
+    overflow: hidden;
+    position: relative;
+    cursor: move;
+}
+
+.container {
+    display: flex;
+    transition: all 1s;
+    position: absolute;
+    top: 0;
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none;  /* Konqueror HTML */
+    -moz-user-select: none;    /* Firefox */
+    -ms-user-select: none;     /* Internet Explorer/Edge */
+    user-select: none;         /* Modern Browsers */
+}
+
+.dragged .container {
+    transition: all 0s;
+}

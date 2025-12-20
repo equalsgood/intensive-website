@@ -8,6 +8,7 @@ import { CustomLink, CustomLinkProps, CustomLinkVariants } from './CustomLink/Cu
 import { Logo } from './Logo/Logo';
 import { Modal } from './Modal/Modal';
 import { Loader } from './Loader/Loader';
+import { DottedCarousel } from './DottedCarousel/DottedCarousel';
 
 export {
     Text,
@@ -25,5 +26,6 @@ export {
     CustomLinkVariants,
     Logo,
     Modal,
-    Loader
+    Loader,
+    DottedCarousel
 }

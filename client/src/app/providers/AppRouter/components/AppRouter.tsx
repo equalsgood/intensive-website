@@ -7,20 +7,25 @@ import { Context } from "app/providers/ContextProvider";
 const AppRouter = () => {
     const { onResize } = useContext(Context);
     let timeout: NodeJS.Timeout = null;
+    const element = document.querySelector('#header');
 
-    window.addEventListener('resize', () => {
+    const listener = () => {
         if(timeout)
             clearTimeout(timeout);
 
         timeout = setTimeout(() => {
             const screenWidth = window.innerWidth;
-            onResize(screenWidth);
+            const widthWithoutScroll = element?.clientWidth;
+            onResize(screenWidth, widthWithoutScroll || screenWidth);
         }, 1000);
-    });
+    };
 
     useEffect(() => {
-        onResize(window.innerWidth);
-    }, []);
+        window.addEventListener('resize', listener);
+        return () => {
+            removeEventListener('resize', listener);
+        }
+    }, [element]);
 
     return (
         <Suspense fallback={<Loader/>}>

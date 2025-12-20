@@ -14,7 +14,14 @@ export const Header = memo(() => {
     const [isHome, setIsHome] = useState(location.pathname === RoutePaths.HOME);
     const [currentLocation, setCurrentLocation] = useState('');
     const [isIntersecting, setIsIntersecting] = useState(true);
-    const { changeModalVisibility } = useContext(Context);
+    const { changeModalVisibility, onResize } = useContext(Context);
+
+    useEffect(() => {
+        const element = document.querySelector('#header');
+        const screenWidth = window.innerWidth;
+        const widthWithoutScroll = element?.clientWidth;
+        onResize(screenWidth, widthWithoutScroll || screenWidth);
+    }, []);
 
     useEffect(() => {
         let observer = undefined;

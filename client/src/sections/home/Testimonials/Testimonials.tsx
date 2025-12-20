@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import cls from './Testimonials.module.css';
-import { Button, ButtonVariants, Carousel, Text, TextColor, TextWeight } from "shared/components";
+import { Button, ButtonVariants, Carousel, DottedCarousel, Text, TextColor, TextWeight } from "shared/components";
 import { Testimonial, TestimonialProps } from "./components/Testimonial";
 import author1 from 'shared/assets/images/testimonial-authors/testimonial-author-1.png';
 import ChevronIcon from 'shared/assets/icons/chevron.svg';
@@ -22,7 +22,7 @@ const testimonialsConfig: Array<TestimonialProps> = [
 ];
 
 export const Testimonials = () => {
-    const { screenWidth } = useContext(Context);
+    const { widthWithoutScroll: screenWidth, isMobile } = useContext(Context);
     const [singleStep, setSingleStep] = useState(550);
     const [singleItemWidth, setSingleItemWidth] = useState(450);
     const [nextClicked, setNextClicked] = useState(0);
@@ -44,34 +44,50 @@ export const Testimonials = () => {
             setSingleStep(itemSize + 24);
             setSingleItemWidth(itemSize);
         } else if(screenWidth < 640) {
-            let itemSize = (screenWidth - 52 - 80);
+            let itemSize = (screenWidth - 52);
             // itemSize = itemSize > 430 ? 430 : itemSize;
             setSingleStep(itemSize + 24);
             setSingleItemWidth(itemSize);
         }
-
     }, [screenWidth]);
     return (
         <section id="testimonials" className={cls.section}>
             <div className={cls.container}>
-                <Button onClick={() => setPrevClicked(prev => prev + 1)} type="button" variant={ButtonVariants.SWITCH_TRANSPARENT} icon={<ChevronIcon/>} classNamesProps={cls.left} />
-                <Button onClick={() => setNextClicked(prev => prev + 1)} type="button" variant={ButtonVariants.SWITCH_TRANSPARENT} icon={<ChevronIcon/>} classNamesProps={cls.right} />
+                {!isMobile &&
+                    <>
+                        <Button onClick={() => setPrevClicked(prev => prev + 1)} type="button" variant={ButtonVariants.SWITCH_TRANSPARENT} icon={<ChevronIcon/>} classNamesProps={cls.left} />
+                        <Button onClick={() => setNextClicked(prev => prev + 1)} type="button" variant={ButtonVariants.SWITCH_TRANSPARENT} icon={<ChevronIcon/>} classNamesProps={cls.right} />
+                    </>
+                }
                 <Text tag="h2" weight={TextWeight.EXTRA_BOLD} color={TextColor.REVERSED}
                       classNamesProps={cls.title}>Відгуки</Text>
-                <Carousel
-                    adjusted
-                    id="testimonials-carousel"
-                    carouselItems={
-                        testimonialsConfig.map(({author, img, text}) =>
-                            <Testimonial width={singleItemWidth} author={author} text={text} img={img} key={author}/>
-                        )
-                    }
-                    singleStep={singleStep}
-                    wrapperSizesClass={cls.carouselWrapper}
-                    containerPropsClass={cls.carouselContainer}
-                    nextClicked={nextClicked}
-                    prevClicked={prevClicked}
-                />
+                { isMobile
+                    ? <DottedCarousel
+                        adjusted
+                        carouselItems={
+                            testimonialsConfig.map(({author, img, text}) =>
+                                <Testimonial width={singleItemWidth} author={author} text={text} img={img} key={author}/>
+                            )
+                        }
+                        singleStep={singleStep}
+                        wrapperSizesClass={cls.carouselWrapper}
+                        containerPropsClass={cls.carouselContainer}
+                        reversed
+                    />
+                    : <Carousel
+                        adjusted
+                        carouselItems={
+                            testimonialsConfig.map(({author, img, text}) =>
+                                <Testimonial width={singleItemWidth} author={author} text={text} img={img} key={author}/>
+                            )
+                        }
+                        singleStep={singleStep}
+                        wrapperSizesClass={cls.carouselWrapper}
+                        containerPropsClass={cls.carouselContainer}
+                        nextClicked={nextClicked}
+                        prevClicked={prevClicked}
+                    />
+                }
             </div>
         </section>
     );

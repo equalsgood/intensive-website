@@ -245,3 +245,10 @@
 
     }
 }
+
+@media (max-width: 639px) {
+    .carousel-wrapper {
+        margin: 0;
+        width: 100%;
+    }
+}

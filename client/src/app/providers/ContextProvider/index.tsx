@@ -10,7 +10,8 @@ export interface ContextSchema {
     tabletBreakpoint: number,
     isTablet: boolean,
     screenWidth: number,
-    onResize: (width: number) => void;
+    widthWithoutScroll: number,
+    onResize: (width: number, widthWithoutScroll: number) => void;
 }
 
 const defaultValue: ContextSchema = {
@@ -24,6 +25,7 @@ const defaultValue: ContextSchema = {
     tabletBreakpoint: 960,
     screenWidth: window.innerWidth,
     onResize: (width) => {},
+    widthWithoutScroll: window.innerWidth,
 }
 
 export const Context = createContext(defaultValue);
@@ -36,6 +38,7 @@ export const ContextProvider = ({ children }: ContextProviderProps) => {
     const mobileBreakpoint = 640;
     const tabletBreakpoint = 960;
     const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+    const [widthWithoutScroll, setWidthWithoutScroll] = useState(window.innerWidth);
     const [isMobile, setIsMobile] = useState(false);
     const [isTablet, setIsTablet] = useState(false);
     const [isModalVisible, setIsModalVisible] = useState(false);
@@ -49,7 +52,7 @@ export const ContextProvider = ({ children }: ContextProviderProps) => {
         setIsSubmitted(value);
     };
 
-    const resizeHandler = (width: number) => {
+    const resizeHandler = (width: number, widthWithoutScroll: number) => {
         if(width < mobileBreakpoint) {
             setIsMobile(true);
         } else {
@@ -61,6 +64,7 @@ export const ContextProvider = ({ children }: ContextProviderProps) => {
             setIsTablet(false);
         }
         setScreenWidth(width);
+        setWidthWithoutScroll(widthWithoutScroll);
     };
 
     const contextValue: ContextSchema = {
@@ -73,7 +77,7 @@ export const ContextProvider = ({ children }: ContextProviderProps) => {
         screenWidth,
         onResize: resizeHandler,
         tabletBreakpoint,
-        isTablet
+        isTablet, widthWithoutScroll
     }
 
     return (
