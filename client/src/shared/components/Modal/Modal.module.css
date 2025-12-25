@@ -33,3 +33,10 @@
     visibility: visible;
     opacity: 1;
 }
+
+@media (max-width: 1279px) {
+    .modalContent {
+        padding: 0;
+        overflow: hidden;
+    }
+}

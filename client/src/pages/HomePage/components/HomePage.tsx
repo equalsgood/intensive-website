@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 import { HomeIntroduction, StudyingPrograms, Teachers, WhyWe, Testimonials } from "sections/home";
 import { CustomLinkCardProps, TryForFree, UsefulLinks } from "sections/shared";
 import { Divider } from 'shared/components'
@@ -6,6 +6,7 @@ import { RoutePaths } from "app/providers/AppRouter";
 import questionMark from "shared/assets/images/question-mark.png";
 import map from "shared/assets/images/map.png";
 import contactUs from "shared/assets/images/contact-us.png";
+import { Context } from "app/providers/ContextProvider";
 
 const linksConfig: Array<CustomLinkCardProps> = [
     { to: RoutePaths.FAQ, img: questionMark, description: "Сторінка з відповідями на поширені запитання", title: "Залишились запитання?" },
@@ -14,6 +15,13 @@ const linksConfig: Array<CustomLinkCardProps> = [
 ];
 
 const HomePage = () => {
+    const { changeIsHomepageLoaded } = useContext(Context);
+
+    useEffect(() => {
+        changeIsHomepageLoaded(true);
+        return () => changeIsHomepageLoaded(false);
+    }, []);
+
     return (
         <main>
             <HomeIntroduction/>

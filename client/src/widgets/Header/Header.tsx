@@ -14,7 +14,7 @@ export const Header = memo(() => {
     const [isHome, setIsHome] = useState(location.pathname === RoutePaths.HOME);
     const [currentLocation, setCurrentLocation] = useState('');
     const [isIntersecting, setIsIntersecting] = useState(true);
-    const { changeModalVisibility, onResize } = useContext(Context);
+    const { changeModalVisibility, onResize, isHomepageLoaded } = useContext(Context);
 
     useEffect(() => {
         const element = document.querySelector('#header');
@@ -22,6 +22,15 @@ export const Header = memo(() => {
         const widthWithoutScroll = element?.clientWidth;
         onResize(screenWidth, widthWithoutScroll || screenWidth);
     }, []);
+
+    useEffect(() => {
+        if (!isHomepageLoaded)
+            return;
+        const element = document.querySelector('#header');
+        const {top, height} = element.getBoundingClientRect();
+        if(Math.abs(top) > height)
+            setIsIntersecting(false);
+    }, [isHomepageLoaded]);
 
     useEffect(() => {
         let observer = undefined;

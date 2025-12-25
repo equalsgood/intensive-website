@@ -12,6 +12,8 @@ export interface ContextSchema {
     screenWidth: number,
     widthWithoutScroll: number,
     onResize: (width: number, widthWithoutScroll: number) => void;
+    isHomepageLoaded: boolean;
+    changeIsHomepageLoaded: (val: boolean) => void;
 }
 
 const defaultValue: ContextSchema = {
@@ -26,6 +28,8 @@ const defaultValue: ContextSchema = {
     screenWidth: window.innerWidth,
     onResize: (width) => {},
     widthWithoutScroll: window.innerWidth,
+    isHomepageLoaded: false,
+    changeIsHomepageLoaded: (val: boolean) => {}
 }
 
 export const Context = createContext(defaultValue);
@@ -43,6 +47,7 @@ export const ContextProvider = ({ children }: ContextProviderProps) => {
     const [isTablet, setIsTablet] = useState(false);
     const [isModalVisible, setIsModalVisible] = useState(false);
     const [isSubmitted, setIsSubmitted] = useState(false);
+    const [isHomepageLoaded, setIsHomepageLoaded] = useState(false);
 
     const changeModalVisibility = (value: boolean) => {
         setIsModalVisible(value);
@@ -67,6 +72,10 @@ export const ContextProvider = ({ children }: ContextProviderProps) => {
         setWidthWithoutScroll(widthWithoutScroll);
     };
 
+    const changeIsHomepageLoaded = (val: boolean) => {
+        setIsHomepageLoaded(val);
+    }
+
     const contextValue: ContextSchema = {
         isModalVisible,
         changeModalVisibility,
@@ -77,7 +86,10 @@ export const ContextProvider = ({ children }: ContextProviderProps) => {
         screenWidth,
         onResize: resizeHandler,
         tabletBreakpoint,
-        isTablet, widthWithoutScroll
+        isTablet,
+        widthWithoutScroll,
+        changeIsHomepageLoaded,
+        isHomepageLoaded
     }
 
     return (

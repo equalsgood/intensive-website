@@ -26,7 +26,7 @@ interface TryForFreeProps {
 }
 
 export const TryForFree = ({ isModal, onClose }: TryForFreeProps) => {
-    const { isSubmitted, changeSubmittedStatus } = useContext(Context);
+    const { isSubmitted, changeSubmittedStatus, screenWidth, isTablet } = useContext(Context);
     const [name, setName] = useState('');
     const [isNameValid, setIsNameValid] = useState(undefined);
     const [phone, setPhone] = useState<E164Number>();
@@ -115,7 +115,7 @@ export const TryForFree = ({ isModal, onClose }: TryForFreeProps) => {
                             placeholder="У цьому полі Ви можете вказати будь-яку інформацію, наприклад: вік учня, рівень знань, бажаний розклад, мета навчання тощо"
                             value={area}
                             onChange={onAreaChange}
-                            rows={3}
+                            rows={screenWidth >= 1280 ? 3 : 4}
                             maxLength={200}
                         />
                         <Button type="submit" variant={ButtonVariants.ACTION_SECOND} classNamesProps={cls.button}
@@ -135,16 +135,18 @@ export const TryForFree = ({ isModal, onClose }: TryForFreeProps) => {
                                 text="Повернутись" onClick={() => changeSubmittedStatus(false)}/>
                     </div>
                 }
-                <div className={cls.descriptionContainer}>
-                    <Text tag="h3" weight={TextWeight.BOLD} color={TextColor.MAIN} classNamesProps={cls.subtitle}>
-                        Ми зв'яжемось з Вами протягом дня
-                    </Text>
-                    <ul className={cls.steps}>
-                        {stepsConfig.map(({img, text}) =>
-                            <Step key={text} img={img} text={text}/>
-                        )}
-                    </ul>
-                </div>
+                {((isModal && !isTablet) || !isModal) &&
+                    <div className={cls.descriptionContainer}>
+                        <Text tag="h3" weight={TextWeight.BOLD} color={TextColor.MAIN} classNamesProps={cls.subtitle}>
+                            Ми зв'яжемось з Вами протягом дня
+                        </Text>
+                        <ul className={cls.steps}>
+                            {stepsConfig.map(({img, text}) =>
+                                <Step key={text} img={img} text={text}/>
+                            )}
+                        </ul>
+                    </div>
+                }
             </div>
         </section>
     );
