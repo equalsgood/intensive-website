@@ -6,11 +6,13 @@ import { MobileNav } from "widgets/Header/components/MobileHeader/MobileNav";
 
 interface MobileHeaderProps {
     intersecting: boolean;
+    isHome: boolean;
     changeModalVisibility: (val: boolean) => void;
     location: Location;
+    screenWidth: number;
 }
 export const MobileHeader = (props: MobileHeaderProps) => {
-    const { changeModalVisibility, location, intersecting } = props;
+    const { isHome, changeModalVisibility, location, intersecting, screenWidth } = props;
     const [open, setOpen] = useState(false);
 
     useEffect(() => {
@@ -28,14 +30,38 @@ export const MobileHeader = (props: MobileHeaderProps) => {
         changeModalVisibility(true);
         setOpen(false);
     }
+
+    if(!isHome)
+        return (
+            <header id="header" className={classNames(cls.header, cls.fixed, {[cls.opened]: open, [cls.visible]: true})}>
+                <MobileNav
+                    screenWidth={screenWidth}
+                    fixed
+                    changeMenuState={() => setOpen(prev => !prev)}
+                    actionClickHandler={() => clickHandler()}
+                    open={open}
+                />
+            </header>
+        );
+
     return (
-        <header id="header" className={classNames(cls.header, {[cls.opened]: open})}>
+        <header id="header" className={classNames(cls.header, {[cls.opened]: open && intersecting, [cls.fixed]: false})}>
             <MobileNav
+                screenWidth={screenWidth}
                 fixed={false}
                 changeMenuState={() => setOpen(prev => !prev)}
                 actionClickHandler={() => clickHandler()}
                 open={open}
             />
+            <div className={classNames(cls.header, cls.fixed, {[cls.opened]: open && !intersecting, [cls.visible]: !intersecting})}>
+                <MobileNav
+                    screenWidth={screenWidth}
+                    fixed
+                    changeMenuState={() => setOpen(prev => !prev)}
+                    actionClickHandler={() => clickHandler()}
+                    open={open}
+                />
+            </div>
         </header>
     );
 };

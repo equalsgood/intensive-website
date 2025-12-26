@@ -21,19 +21,23 @@ interface MobileNavProps {
     actionClickHandler: () => void;
     open: boolean;
     fixed: boolean;
+    screenWidth: number;
 }
 
 export const MobileNav = (props: MobileNavProps) => {
-    const { changeMenuState, actionClickHandler, open } = props;
+    const { changeMenuState, actionClickHandler, open, fixed, screenWidth } = props;
 
     return (
         <nav className={cls.nav}>
             <div className={cls.top}>
-                <Logo isFull/>
-                <CustomLink to={Anchors.PHONE} variant={CustomLinkVariants.ANCHOR} classNamesProps={cls.phone}>
-                    +380 (96) 456-24-83
-                </CustomLink>
-                <CustomLink to={Anchors.TG} variant={CustomLinkVariants.ANCHOR_ICON} classNamesProps={cls.tg}>
+                <Logo isFull={!fixed}/>
+                {(screenWidth < 640 && !fixed)
+                    ? undefined
+                    : <CustomLink to={Anchors.PHONE} variant={CustomLinkVariants.ANCHOR} classNamesProps={cls.phone}>
+                        +380 (96) 456-24-83
+                    </CustomLink>
+                }
+                <CustomLink to={Anchors.TG} variant={CustomLinkVariants.ANCHOR_ICON} classNamesProps={classNames(cls.tg, {[cls.expanded]: !fixed})}>
                     <TgIcon/>
                 </CustomLink>
                 <button type="button" className={cls.button} onClick={() => changeMenuState()}>
@@ -42,7 +46,7 @@ export const MobileNav = (props: MobileNavProps) => {
                 </button>
             </div>
             <div className={cls.links}>
-                <Text tag="h3" color={TextColor.REVERSED} weight={TextWeight.SEMI_BOLD}>
+                <Text tag="h3" color={fixed ? TextColor.MAIN : TextColor.REVERSED} weight={TextWeight.SEMI_BOLD}>
                     Корисні посилання:
                 </Text>
                 <CustomLink classNamesProps={cls.link} to={RoutePaths.LOCATIONS}
@@ -56,7 +60,7 @@ export const MobileNav = (props: MobileNavProps) => {
                             variant={CustomLinkVariants.TEXT}>
                     Контакти
                 </CustomLink>
-                <Text classNamesProps={cls.second} tag="h3" color={TextColor.REVERSED}
+                <Text classNamesProps={cls.second} tag="h3" color={fixed ? TextColor.MAIN : TextColor.REVERSED}
                       weight={TextWeight.SEMI_BOLD}>
                     Про нас:
                 </Text>

@@ -17,7 +17,7 @@ const AppRouter = () => {
             const screenWidth = window.innerWidth;
             const widthWithoutScroll = element?.clientWidth;
             onResize(screenWidth, widthWithoutScroll || screenWidth);
-        }, 1000);
+        }, 300);
     };
 
     useEffect(() => {

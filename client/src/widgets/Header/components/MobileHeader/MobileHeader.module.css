@@ -8,7 +8,29 @@
     left: 0;
     z-index: 5;
     overflow: hidden;
-    transition: all 1s;
+    transition: max-height 1s, background-color 1s;
+}
+
+.header.fixed {
+    background: var(--third-color);
+    max-height: var(--header-shrinked-height);
+    position: fixed;
+    transform: translateY(-100%);
+    transition: max-height 1s, transform 0.5s;
+    box-shadow: rgba(0, 0, 0, 0.08) 0 2px 4px;
+}
+
+.header.fixed.visible {
+    transform: translateY(0);
+}
+
+.opened.header {
+    background: var(--second-color);
+    max-height: 100vh;
+}
+
+.opened.header.fixed {
+    background: var(--third-color);
 }
 
 .nav {
@@ -22,9 +44,8 @@
     /*flex-shrink: 0;*/
 }
 
-.opened.header {
-    background: var(--second-color);
-    max-height: 100vh;
+.fixed .nav {
+    padding: 20px 26px 38px;
 }
 
 .top {
@@ -51,6 +72,10 @@
     margin-left: auto;
 }
 
+.fixed .phone {
+    color: var(--second-color);
+}
+
 .tg {
     height: 26px;
     padding: 0;
@@ -59,6 +84,10 @@
 
 .tg svg {
     fill: var(--third-color);
+}
+
+.fixed .tg svg {
+    fill: var(--second-color);
 }
 
 .button {
@@ -80,6 +109,10 @@
     transform: rotate(-45deg);
     opacity: 0;
     transition: all 0.3s;
+}
+
+.fixed .menu, .fixed .cross {
+    color: var(--second-color);
 }
 
 .menu {
@@ -114,9 +147,32 @@
     padding: 0;
 }
 
+.fixed .link {
+    color: var(--second-text-color);
+}
+
 .action-button {
     margin-top: auto;
     height: 46px;
     width: 100%;
     flex-shrink: 0;
+}
+
+.fixed .action-button {
+    color: var(--third-color);
+    background: var(--second-color);
+}
+
+@media (max-width: 639px) {
+    .top {
+        gap: 8px;
+    }
+
+    .tg {
+        margin: 6px 8px 0 0;
+    }
+
+    .tg.expanded {
+        margin: 6px 8px 0 auto;
+    }
 }

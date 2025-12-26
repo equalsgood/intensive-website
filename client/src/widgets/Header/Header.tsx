@@ -1,4 +1,4 @@
-import React, { memo, useContext, useEffect, useState } from 'react';
+import React, { memo, useContext, useEffect, useRef, useState } from 'react';
 import cls from './Header.module.css';
 import { useLocation } from "react-router";
 import { Anchors, RoutePaths } from "app/providers/AppRouter";
@@ -17,6 +17,7 @@ export const Header = memo(() => {
     const [currentLocation, setCurrentLocation] = useState('');
     const [isIntersecting, setIsIntersecting] = useState(true);
     const { changeModalVisibility, onResize, isHomepageLoaded, screenWidth } = useContext(Context);
+    const prevScreen = useRef(screenWidth);
 
     useEffect(() => {
         const element = document.querySelector('#header');
@@ -39,18 +40,20 @@ export const Header = memo(() => {
 
         const hash = window.location.hash;
 
-        if(currentLocation === location.pathname && !hash) {
-            window.scrollTo({
-                top: 0,
-                left: 0,
-                behavior: 'smooth'
-            } as unknown as ScrollOptions);
-        } else if(!hash) {
-            window.scrollTo({
-                top: 0,
-                left: 0,
-                behavior: 'instant'
-            } as unknown as ScrollOptions);
+        if(prevScreen.current === screenWidth) {
+            if(currentLocation === location.pathname && !hash) {
+                window.scrollTo({
+                    top: 0,
+                    left: 0,
+                    behavior: 'smooth'
+                } as unknown as ScrollOptions);
+            } else if(!hash) {
+                window.scrollTo({
+                    top: 0,
+                    left: 0,
+                    behavior: 'instant'
+                } as unknown as ScrollOptions);
+            }
         }
 
         setCurrentLocation(location.pathname);
@@ -69,6 +72,8 @@ export const Header = memo(() => {
             setIsHome(false);
         }
 
+        prevScreen.current = screenWidth;
+
         return () => {
             observer?.disconnect();
         }
@@ -77,6 +82,8 @@ export const Header = memo(() => {
     if(screenWidth < 960){
         return (
             <MobileHeader
+                screenWidth={screenWidth}
+                isHome={isHome}
                 intersecting={isIntersecting}
                 location={location}
                 changeModalVisibility={changeModalVisibility}
