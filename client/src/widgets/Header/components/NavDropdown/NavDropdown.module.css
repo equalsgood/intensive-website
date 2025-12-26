@@ -1,0 +1,24 @@
+.container {
+    margin: 0 auto 0 34px;
+}
+
+.dropdown-header {
+    gap: 12px;
+    height: 40px;
+    padding: 0 14px;
+}
+
+.dropdown-header span {
+    font-size: 18px;
+}
+
+.dropdown-header svg {
+    width: 26px;
+}
+
+.dropdown {
+    top: -20px;
+    left: -20px;
+    padding: 20px 20px 30px;
+    width: max-content;
+}

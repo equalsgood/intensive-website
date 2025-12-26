@@ -9,6 +9,7 @@ import { Logo } from './Logo/Logo';
 import { Modal } from './Modal/Modal';
 import { Loader } from './Loader/Loader';
 import { DottedCarousel } from './DottedCarousel/DottedCarousel';
+import { Dropdown } from './Dropdown/Dropdown';
 
 export {
     Text,
@@ -27,5 +28,6 @@ export {
     Logo,
     Modal,
     Loader,
-    DottedCarousel
+    DottedCarousel,
+    Dropdown
 }

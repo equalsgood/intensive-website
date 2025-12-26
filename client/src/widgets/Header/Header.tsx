@@ -8,13 +8,14 @@ import TgIcon from "shared/assets/icons/social/tg-transparent.svg";
 import { Button, ButtonVariants, CustomLink, CustomLinkVariants } from "shared/components";
 import { FixedHeaderNav } from "./components/FixedHeaderNav/FixedHeaderNav";
 import { Context } from "app/providers/ContextProvider";
+import { NavDropdown } from "widgets/Header/components/NavDropdown/NavDropdown";
 
 export const Header = memo(() => {
     const location = useLocation();
     const [isHome, setIsHome] = useState(location.pathname === RoutePaths.HOME);
     const [currentLocation, setCurrentLocation] = useState('');
     const [isIntersecting, setIsIntersecting] = useState(true);
-    const { changeModalVisibility, onResize, isHomepageLoaded } = useContext(Context);
+    const { changeModalVisibility, onResize, isHomepageLoaded, screenWidth } = useContext(Context);
 
     useEffect(() => {
         const element = document.querySelector('#header');
@@ -75,28 +76,32 @@ export const Header = memo(() => {
     if(!isHome) {
         return (
             <header id="header" className={classNames(cls.fixedHeader, cls.visible)}>
-                <FixedHeaderNav onClick={changeModalVisibility}/>
+                <FixedHeaderNav intersecting={false} screenWidth={screenWidth} onClick={changeModalVisibility}/>
             </header>
         )
     }
 
     return (
         <header id="header" className={cls.fullHeader}>
-            <nav className={cls.fullNav}>
+            <nav style={{opacity: isIntersecting ? 1 : 0}} className={cls.fullNav}>
                 <Logo isFull/>
-                <div className={cls.fullMainNav}>
-                    <CustomLink to={RoutePaths.LOCATIONS} variant={CustomLinkVariants.TEXT}
-                                classNamesProps={cls.textLink}>
-                        Розташування
-                    </CustomLink>
-                    <CustomLink to={RoutePaths.FAQ} variant={CustomLinkVariants.TEXT} classNamesProps={cls.textLink}>
-                        Відповіді на запитання
-                    </CustomLink>
-                    <CustomLink to={RoutePaths.CONTACTS} variant={CustomLinkVariants.TEXT}
-                                classNamesProps={cls.textLink}>
-                        Контакти
-                    </CustomLink>
-                </div>
+                {screenWidth >= 1280
+                    ? <div className={cls.fullMainNav}>
+                        <CustomLink to={RoutePaths.LOCATIONS} variant={CustomLinkVariants.TEXT}
+                                    classNamesProps={cls.textLink}>
+                            Розташування
+                        </CustomLink>
+                        <CustomLink to={RoutePaths.FAQ} variant={CustomLinkVariants.TEXT}
+                                    classNamesProps={cls.textLink}>
+                            Відповіді на запитання
+                        </CustomLink>
+                        <CustomLink to={RoutePaths.CONTACTS} variant={CustomLinkVariants.TEXT}
+                                    classNamesProps={cls.textLink}>
+                            Контакти
+                        </CustomLink>
+                    </div>
+                    : <NavDropdown intersecting={isIntersecting} reversed={false} linkClass={cls.textLink}/>
+                }
                 <div className={cls.fullActionBlock}>
                     <CustomLink to={Anchors.PHONE} variant={CustomLinkVariants.ANCHOR} classNamesProps={cls.phone}>
                         +380 (96) 456-24-83
@@ -113,7 +118,7 @@ export const Header = memo(() => {
                 </div>
             </nav>
             <div className={classNames(cls.fixedHeader, {[cls.visible]: !isIntersecting})}>
-                <FixedHeaderNav onClick={changeModalVisibility}/>
+                <FixedHeaderNav intersecting={isIntersecting} screenWidth={screenWidth} onClick={changeModalVisibility}/>
             </div>
         </header>
     );
