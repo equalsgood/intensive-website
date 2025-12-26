@@ -22,7 +22,7 @@
 .selected-dot {
     width: 14px;
     height: 14px;
-    border: 12px solid var(--second-color);
+    border: 4px solid var(--second-color);
     background: var(--third-color);
 }
 

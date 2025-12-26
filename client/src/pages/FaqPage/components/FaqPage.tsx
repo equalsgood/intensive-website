@@ -7,6 +7,7 @@ import { RoutePaths } from "app/providers/AppRouter";
 import home from "shared/assets/images/home.png";
 import map from "shared/assets/images/map.png";
 import contactUs from "shared/assets/images/contact-us.png";
+import questionMark from "shared/assets/images/question-mark.png";
 
 const linksConfig: Array<CustomLinkCardProps> = [
     { to: RoutePaths.HOME, img: home, description: "Сторінка з усією основною інформацією про центр", title: "Домашня сторінка" },
@@ -14,12 +15,16 @@ const linksConfig: Array<CustomLinkCardProps> = [
     { to: RoutePaths.CONTACTS, img: contactUs, description: "Сторінка з контактами репетиторського центру", title: "Хочете зв'язатись?" },
 ];
 
+const pageLink: CustomLinkCardProps = {
+    to: RoutePaths.FAQ, img: questionMark, description: "Сторінка з відповідями на поширені запитання", title: "Залишились запитання?"
+}
+
 const FaqPage = () => {
     return (
         <main className={cls.main}>
             <QuestionAnswers/>
             <Divider/>
-            <UsefulLinks links={linksConfig}/>
+            <UsefulLinks links={linksConfig} pageLink={pageLink}/>
         </main>
     );
 };

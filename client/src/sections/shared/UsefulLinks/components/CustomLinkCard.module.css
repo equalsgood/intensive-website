@@ -62,3 +62,41 @@
 .arrow svg {
     color: white;
 }
+
+@media (max-width: 1279px) {
+    .link:hover {
+        transform: unset;
+    }
+    .link:active {
+        transform: translateY(-10px);
+    }
+    .arrow.hover {
+        transform: rotate(135deg);
+    }
+    .arrow.active {
+        transform: rotate(180deg);
+    }
+}
+
+@media (max-width: 799px) {
+    .link {
+        width: 330px;
+        background-color: var(--primary-color);
+        transition: all 0.3s;
+        padding: 20px 15px 30px;
+        position: relative;
+        border-radius: 10px;
+    }
+
+    .link h4 {
+        font-size: 20px;
+        line-height: 24px;
+        margin-bottom: 14px;
+    }
+
+    .link p {
+        font-size: 16px;
+        width: 76%;
+        margin-bottom: 14px;
+    }
+}
