@@ -97,9 +97,9 @@ export const Footer = () => {
                         </Text>
                         <div className={cls.socials}>
                             <a target="_blank" href={Anchors.TG}><TelegramIcon className={cls.social}/></a>
-                            <a target="_blank" href={Anchors.TG}><WhatsUpIcon className={cls.social}/></a>
-                            <a target="_blank" href={Anchors.TG}><ViberIcon className={cls.social}/></a>
-                            <a target="_blank" href={Anchors.TG}><InstIcon className={cls.social}/></a>
+                            <a target="_blank" href={Anchors.WUP}><WhatsUpIcon className={cls.social}/></a>
+                            <a target="_blank" href={Anchors.VIBER}><ViberIcon className={cls.social}/></a>
+                            <a target="_blank" href={Anchors.INST}><InstIcon className={cls.social}/></a>
                         </div>
                     </div>
                 </div>

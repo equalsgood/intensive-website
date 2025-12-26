@@ -23,3 +23,10 @@
         --content-second-width: 1024px;
     }
 }
+
+@media(max-width: 959px) {
+    :root {
+        --header-full-height: 120px;
+        --header-shrinked-height: 100px;
+    }
+}

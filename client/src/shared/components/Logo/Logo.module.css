@@ -19,3 +19,26 @@
     height: 40px;
     margin-right: 14px;
 }
+
+@media (max-width: 959px) {
+    .full-logo {
+        gap: 2px;
+    }
+
+    .full-logo img {
+        width: 154px;
+        height: 40px;
+    }
+
+    .full-logo p {
+        font-size: 12px;
+        width: 152px;
+        line-height: 14px;
+    }
+
+    .short-logo {
+        width: 32px;
+        height: 40px;
+        margin-right: 14px;
+    }
+}

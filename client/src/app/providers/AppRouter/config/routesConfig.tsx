@@ -22,6 +22,9 @@ export enum HomePaths {
 export enum Anchors {
     PHONE = 'tel:+380964562483',
     TG = 'https://t.me/tutorartembabak',
+    VIBER = '',
+    WUP = '',
+    INST = '',
 }
 
 export const routesConfig: Array<RouteProps> = [

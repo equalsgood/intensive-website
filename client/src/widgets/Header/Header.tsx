@@ -8,7 +8,8 @@ import TgIcon from "shared/assets/icons/social/tg-transparent.svg";
 import { Button, ButtonVariants, CustomLink, CustomLinkVariants } from "shared/components";
 import { FixedHeaderNav } from "./components/FixedHeaderNav/FixedHeaderNav";
 import { Context } from "app/providers/ContextProvider";
-import { NavDropdown } from "widgets/Header/components/NavDropdown/NavDropdown";
+import { NavDropdown } from "./components/NavDropdown/NavDropdown";
+import { MobileHeader } from "./components/MobileHeader/MobileHeader";
 
 export const Header = memo(() => {
     const location = useLocation();
@@ -71,7 +72,17 @@ export const Header = memo(() => {
         return () => {
             observer?.disconnect();
         }
-    }, [location]);
+    }, [location, screenWidth]);
+
+    if(screenWidth < 960){
+        return (
+            <MobileHeader
+                intersecting={isIntersecting}
+                location={location}
+                changeModalVisibility={changeModalVisibility}
+            />
+        )
+    }
 
     if(!isHome) {
         return (
