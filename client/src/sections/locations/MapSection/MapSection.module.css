@@ -20,6 +20,8 @@
 }
 
 .map-wrapper {
+    width: 100%;
+    max-width: var(--content-second-width);
     position: relative;
 }
 
@@ -30,6 +32,67 @@
 .logo {
     width: 50px;
     position: absolute;
-    top: 340px;
-    left: 830px;
+    top: 40%;
+    left: 70%;
+}
+
+@media (max-width: 1279px) {
+    .section {
+        gap: 24px;
+        padding: 56px 40px 80px;
+    }
+
+    .section h1, .section p, .map-wrapper {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .section h1 {
+        font-size: 48px;
+    }
+
+    .section p {
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 959px) {
+    .section {
+        padding: 47px 26px 64px;
+    }
+
+    .section h1 {
+        font-size: 40px;
+    }
+
+    .section p {
+        font-size: 22px;
+    }
+
+    .logo {
+        width: 40px;
+        top: 37%;
+        left: 68%;
+    }
+}
+
+@media (max-width: 639px) {
+    .section {
+        gap: 18px;
+        padding: 47px 24px 58px;
+    }
+
+    .section h1 {
+        font-size: 32px;
+    }
+
+    .section p {
+        font-size: 16px;
+    }
+
+    .logo {
+        width: 30px;
+        top: 37%;
+        left: 68%;
+    }
 }
