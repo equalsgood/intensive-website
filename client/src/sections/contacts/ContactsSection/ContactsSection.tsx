@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import cls from './ContactsSection.module.css';
 import { Text, TextColor, TextWeight } from "shared/components";
 import admin from "shared/assets/images/contacts-admin.png";
@@ -7,6 +7,7 @@ import TelegramIcon from "shared/assets/icons/social/tg.svg";
 import WhatsUpIcon from "shared/assets/icons/social/wup.svg";
 import ViberIcon from "shared/assets/icons/social/viber.svg";
 import InstIcon from "shared/assets/icons/social/inst.svg";
+import { Context } from "app/providers/ContextProvider";
 
 const contactsLinks = {
     telegram: 'https://t.me/tutorartembabak',
@@ -19,6 +20,8 @@ const contactsLinks = {
 }
 
 export const ContactsSection = () => {
+    const { screenWidth } = useContext(Context);
+
     return (
         <section className={cls.section}>
             <div className={cls.container}>
@@ -86,18 +89,30 @@ export const ContactsSection = () => {
                         </Text>
                         <div className={cls.mails}>
                             <div className={cls.mail}>
-                                <Text tag="p" color={TextColor.MAIN} weight={TextWeight.MEDIUM}
-                                      classNamesProps={cls.infoPiece}>
-                                    Підтримка <br/>клієнтів
-                                </Text>
+                                {screenWidth >= 1280
+                                    ? <Text tag="p" color={TextColor.MAIN} weight={TextWeight.MEDIUM}
+                                            classNamesProps={cls.infoPiece}>
+                                        Підтримка <br/>клієнтів
+                                    </Text>
+                                    : <Text tag="p" color={TextColor.MAIN} weight={TextWeight.MEDIUM}
+                                            classNamesProps={cls.infoPiece}>
+                                        Підтримка клієнтів
+                                    </Text>
+                                }
                                 <a className={cls.link} target="_blank"
                                    href={contactsLinks.customerMail}>ask@intensive.ua</a>
                             </div>
                             <div className={cls.mail}>
-                                <Text tag="p" color={TextColor.MAIN} weight={TextWeight.MEDIUM}
-                                      classNamesProps={cls.infoPiece}>
-                                    Праце-<br/>влаштування
-                                </Text>
+                                {screenWidth >= 1280
+                                    ? <Text tag="p" color={TextColor.MAIN} weight={TextWeight.MEDIUM}
+                                            classNamesProps={cls.infoPiece}>
+                                        Праце-<br/>влаштування
+                                    </Text>
+                                    : <Text tag="p" color={TextColor.MAIN} weight={TextWeight.MEDIUM}
+                                            classNamesProps={cls.infoPiece}>
+                                        Працевлаштування
+                                    </Text>
+                                }
                                 <a className={cls.link} target="_blank"
                                    href={contactsLinks.hrMail}>hr@intensive.ua</a>
                             </div>
@@ -112,10 +127,12 @@ export const ContactsSection = () => {
                         </div>
                     </div>
                 </div>
-                <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d84683.45358854705!2d34.967054142871085!3d48.44966170363317!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40dbe36dd6417da3%3A0x6fd0878ac72bea90!2sTeatralna%20St%2C%203%2C%20Dnipro%2C%20Dnipropetrovs&#39;ka%20oblast%2C%2049000!5e0!3m2!1sen!2sua!4v1765211319698!5m2!1sen!2sua"
-                    width="100%" height="500" style={{border: 0}} allowFullScreen={false} loading="lazy"
-                    referrerPolicy="no-referrer-when-downgrade"></iframe>
+                <div className={cls.mapWrapper}>
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d84683.45358854705!2d34.967054142871085!3d48.44966170363317!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40dbe36dd6417da3%3A0x6fd0878ac72bea90!2sTeatralna%20St%2C%203%2C%20Dnipro%2C%20Dnipropetrovs&#39;ka%20oblast%2C%2049000!5e0!3m2!1sen!2sua!4v1765211319698!5m2!1sen!2sua"
+                        width="100%" height="100%" style={{border: 0}} allowFullScreen={false} loading="lazy"
+                        referrerPolicy="no-referrer-when-downgrade"></iframe>
+                </div>
             </div>
         </section>
     );

@@ -119,3 +119,136 @@
     flex-direction: column;
     gap: 6px;
 }
+
+.map-wrapper {
+    width: 100%;
+    height: 500px;
+}
+
+@media (max-width: 1279px) {
+    .section {
+        padding: 64px 40px 80px;
+    }
+
+    .container {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .container h1 {
+        font-size: 48px;
+        line-height: 52px;
+        width: 70%;
+        margin-bottom: 28px;
+    }
+
+    .contacts {
+        width: 100%;
+    }
+
+    .contacts img {
+        width: 260px;
+    }
+
+    .mails {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        row-gap: 6px;
+    }
+
+    .mail {
+        gap: 4px;
+        flex-shrink: 0;
+    }
+
+    .map-wrapper {
+        width: 100%;
+        height: 400px;
+    }
+}
+
+@media (max-width: 959px) {
+    .section {
+        padding: 47px 26px 64px;
+    }
+
+    .container h1 {
+        font-size: 36px;
+        line-height: 40px;
+        margin-bottom: 20px;
+    }
+
+    .contacts {
+        display: flex;
+        flex-direction: column;
+        gap: 26px;
+        margin-bottom: 26px;
+    }
+
+    .contacts img {
+        width: 200px;
+    }
+
+    .mails {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        row-gap: 6px;
+    }
+
+    .map-wrapper {
+        height: 300px;
+    }
+
+    .socials {
+        margin-top: 6px;
+        gap: 18px;
+        padding: 0;
+    }
+}
+
+@media (max-width: 639px) {
+    .section {
+        padding: 38px 24px 58px;
+    }
+
+    .container h1 {
+        width: 60%;
+        font-size: 28px;
+        line-height: 32px;
+        margin-bottom: 20px;
+    }
+
+    .contacts {
+        gap: 24px;
+        margin-bottom: 24px;
+    }
+
+    .contacts img {
+        width: 160px;
+    }
+
+    .mails {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        align-items: flex-start;
+    }
+
+    .map-wrapper {
+        height: 300px;
+    }
+
+    .contact {
+        gap: 8px;
+        padding: 16px 22px;
+    }
+
+    .contact h2 {
+        font-size: 22px;
+        margin-bottom: 4px;
+    }
+
+    .contact p {
+        font-size: 18px;
+    }
+}
