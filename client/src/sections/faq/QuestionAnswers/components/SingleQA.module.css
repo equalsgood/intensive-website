@@ -1,17 +1,13 @@
 .container {
     max-height: 100px;
-    padding: 25px 50px 30px;
+    padding: 0 50px 30px;
     border-radius: 10px;
     border: 1px solid var(--second-opacity-color);
     cursor: pointer;
     transition:
             all 0.3s,
-            max-height 2s;
+            max-height 1s;
     overflow: hidden;
-}
-
-.container.opened {
-    max-height: 400px;
 }
 
 .container:hover {
@@ -22,12 +18,12 @@
 }
 
 .container p {
-    width: 90%;
-    margin-top: 22px;
+    width: 100%;
     font-size: 18px;
 }
 
 .question-container {
+    height: 100px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -35,17 +31,91 @@
 
 .question-container h4 {
     font-size: 24px;
-    margin-bottom: 4px;
 }
 
 .question-container svg {
     height: 50px;
-    /*font-size: 24px;*/
     color: var(--second-opacity-color);
-    transition: all 1s 1s;
+    transition: all 1s;
 }
 
 .opened .question-container svg {
     transform: rotate(90deg);
     transition: all 1s 0s;
+}
+
+@media (max-width: 1279px) {
+    .container {
+        padding: 0 40px 26px;
+    }
+
+    .container:hover {
+        box-shadow: none;
+    }
+    .container:active {
+        box-shadow: 4px 4px 0 var(--primary-shadow);
+    }
+    .container.opened {
+        box-shadow: 4px 4px 0 var(--second-shadow);
+    }
+
+    .container p {
+        font-size: 18px;
+    }
+
+    .question-container {
+        height: 100px;
+    }
+
+    .question-container h4 {
+        font-size: 22px;
+    }
+
+    .question-container svg {
+        height: 50px;
+    }
+}
+
+@media (max-width: 959px) {
+    .container {
+        padding: 0 24px 22px;
+    }
+
+    .container p {
+        font-size: 18px;
+    }
+
+    .question-container {
+        height: 100px;
+    }
+
+    .question-container h4 {
+        font-size: 20px;
+    }
+
+    .question-container svg {
+        height: 50px;
+    }
+}
+
+@media (max-width: 639px) {
+    .container {
+        padding: 0 18px 22px;
+    }
+
+    .container p {
+        font-size: 16px;
+    }
+
+    .question-container {
+        height: 80px;
+    }
+
+    .question-container h4 {
+        font-size: 18px;
+    }
+
+    .question-container svg {
+        height: 40px;
+    }
 }
