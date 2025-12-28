@@ -102,11 +102,11 @@ export const TryForFree = ({ isModal, onClose }: TryForFreeProps) => {
                 {!isSubmitted
                     ? <form onSubmit={(e) => submitHandler(e)} className={cls.formContainer}>
                         <Input label="Ім'я" id="input-name" type="text" value={name} onChange={onNameChange}
-                               isValid={isNameValid} invalidMessage="Введіть ім'я"/>
+                               isValid={isNameValid} invalidMessage="Введіть ім'я" maxLength={254}/>
                         <PhoneNumberInput value={phone} onChange={onPhoneChange} isValid={isPhoneValid}/>
                         <Input label="Електронна пошта" id="input-email" type="email" value={email}
                                onChange={onEmailChange} isValid={isEmailValid}
-                               invalidMessage="Потрібно вказати правильний email"/>
+                               invalidMessage="Потрібно вказати правильний email" maxLength={254}/>
                         <Input
                             label="Додаткова інфомація (необов'язково)"
                             textArea
@@ -116,7 +116,7 @@ export const TryForFree = ({ isModal, onClose }: TryForFreeProps) => {
                             value={area}
                             onChange={onAreaChange}
                             rows={screenWidth >= 1280 ? 3 : 4}
-                            maxLength={200}
+                            maxLength={254}
                         />
                         <Button type="submit" variant={ButtonVariants.ACTION_SECOND} classNamesProps={cls.button}
                                 text="Залишити заявку"/>

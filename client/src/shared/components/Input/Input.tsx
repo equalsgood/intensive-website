@@ -42,6 +42,7 @@ export const Input = (props: InputProps) => {
         <div className={classes}>
             <label htmlFor={id} className={cls.label}>{label}</label>
             <input
+                maxLength={maxLength}
                 type={type}
                 className={cls.input}
                 value={value}
