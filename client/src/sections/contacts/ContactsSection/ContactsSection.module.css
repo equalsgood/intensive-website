@@ -126,6 +126,18 @@
 }
 
 @media (max-width: 1279px) {
+    .link:hover {
+        color: #415cdd;
+    }
+    .link:active {
+        color: #8f41dd;
+    }
+    .social:hover {
+        transform: scale(1);
+    }
+    .social:active {
+        transform: scale(1.2);
+    }
     .section {
         padding: 64px 40px 80px;
     }

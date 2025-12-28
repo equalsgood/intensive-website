@@ -112,6 +112,12 @@
 }
 
 @media (max-width: 1279px) {
+    .social:hover {
+        transform: scale(1);
+    }
+    .social:active {
+        transform: scale(1.2);
+    }
     .section {
         padding: 56px 40px 40px;
     }
@@ -153,13 +159,20 @@
     .link:hover {
         background: var(--third-color);
     }
-
     .link:hover span {
         color: var(--second-color);
     }
-
     .link:hover svg {
         fill: var(--second-color);
+    }
+    .link:active {
+        background: var(--second-color);
+    }
+    .link:active span {
+        color: var(--third-color);
+    }
+    .link:active svg {
+        fill: var(--third-color);
     }
 }
 

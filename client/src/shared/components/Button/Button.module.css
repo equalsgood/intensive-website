@@ -78,3 +78,56 @@
 .icon:hover {
     transform: scale(1.2);
 }
+
+@media(max-width: 1279px) {
+    .action:hover {
+        background: var(--second-color);
+    }
+    .action:active {
+        background: #903fb8;
+    }
+
+    .action-second:hover {
+        background: var(--primary-color);
+    }
+    .action-second:active {
+        background: #ffe27e;
+    }
+
+    .switch:hover {
+        transform: scale(1);
+    }
+    .switch:active {
+        transform: scale(1.2);
+    }
+
+    .outlined-reversed {
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: var(--third-text-color);
+        border: 2px solid var(--third-color);
+        border-radius: 60px;
+        padding: 0 20px;
+        font-size: 16px;
+        font-weight: 500;
+    }
+
+    .outlined-reversed:hover {
+        color: var(--third-text-color);
+        background: transparent;
+    }
+
+    .outlined-reversed:active {
+        color: var(--second-text-color);
+        background: var(--third-color);
+    }
+
+    .icon:hover {
+        transform: scale(1.2);
+    }
+    .icon:active {
+        transform: scale(1);
+    }
+}

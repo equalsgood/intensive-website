@@ -22,34 +22,34 @@ const testimonialsConfig: Array<TestimonialProps> = [
 ];
 
 export const Testimonials = () => {
-    const { widthWithoutScroll: screenWidth, isMobile } = useContext(Context);
+    const { widthWithoutScroll: screenWidth, screenWidth: clientScreenWidth, isMobile } = useContext(Context);
     const [singleStep, setSingleStep] = useState(550);
     const [singleItemWidth, setSingleItemWidth] = useState(450);
     const [nextClicked, setNextClicked] = useState(0);
     const [prevClicked, setPrevClicked] = useState(0);
 
     useEffect(() => {
-        if(screenWidth >= 1280) {
+        if(clientScreenWidth >= 1280) {
             setSingleStep(550);
             setSingleItemWidth(450);
         }
-        else if(screenWidth < 1280 && screenWidth >= 960) {
+        else if(clientScreenWidth < 1280 && clientScreenWidth >= 960) {
             let itemSize = (screenWidth - 80 - 120 - 44) / 2;
             itemSize = itemSize > 430 ? 430 : itemSize;
             setSingleStep(itemSize + 44);
             setSingleItemWidth(itemSize);
-        } else if(screenWidth < 960 && screenWidth >= 640) {
+        } else if(clientScreenWidth < 960 && clientScreenWidth >= 640) {
             let itemSize = (screenWidth - 52 - 80 - 24) / 2;
             itemSize = itemSize > 430 ? 430 : itemSize;
             setSingleStep(itemSize + 24);
             setSingleItemWidth(itemSize);
-        } else if(screenWidth < 640) {
+        } else if(clientScreenWidth < 640) {
             let itemSize = (screenWidth - 52);
             // itemSize = itemSize > 430 ? 430 : itemSize;
             setSingleStep(itemSize + 24);
             setSingleItemWidth(itemSize);
         }
-    }, [screenWidth]);
+    }, [clientScreenWidth]);
     return (
         <section id="testimonials" className={cls.section}>
             <div className={cls.container}>

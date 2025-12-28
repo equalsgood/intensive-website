@@ -186,6 +186,24 @@
 }
 
 @media (max-width: 1279px) {
+    .switch:hover {
+        transform: scale(1);
+    }
+
+    .switch:active {
+        transform: scale(1.15);
+        background: var(--second-color);
+        color: var(--primary-color);
+    }
+
+    .right:hover {
+        transform: scale(1) rotate(180deg);
+    }
+
+    .right:active {
+        transform: scale(1.15) rotate(180deg);
+    }
+
     .section {
         gap: 80px;
         background: var(--third-color);

@@ -25,3 +25,13 @@
     padding: 10px 14px;
     border-radius: 30px;
 }
+
+@media (max-width: 1279px) {
+    .anchor-icon:hover {
+        transform: unset;
+    }
+
+    .anchor-icon:active {
+        transform: scale(1.2);
+    }
+}

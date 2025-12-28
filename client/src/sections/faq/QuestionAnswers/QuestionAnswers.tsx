@@ -38,15 +38,15 @@ export const QuestionAnswers = () => {
                     <Text tag="span" color={TextColor.MAIN} weight={TextWeight.MEDIUM}>Задайте запитання зручним для Вас
                         способом</Text>
                     <div className={cls.socials}>
-                        <a href={links.telegram}><TelegramIcon className={cls.social}/></a>
-                        <a href={links.telegram}><WhatsUpIcon className={cls.social}/></a>
-                        <a href={links.telegram}><ViberIcon className={cls.social}/></a>
+                        <a target="_blank" href={links.telegram}><TelegramIcon className={cls.social}/></a>
+                        <a target="_blank" href={links.telegram}><WhatsUpIcon className={cls.social}/></a>
+                        <a target="_blank" href={links.telegram}><ViberIcon className={cls.social}/></a>
                     </div>
-                    <a href={links.mail} className={cls.link}>
+                    <a target="_blank" href={links.mail} className={cls.link}>
                         <MailIcon/>
                         <Text tag="span" color={TextColor.MAIN}>info@intensive.ua</Text>
                     </a>
-                    <a href={links.phone} className={cls.link}>
+                    <a target="_blank" href={links.phone} className={cls.link}>
                         <PhoneIcon className={cls.phoneIcon}/>
                         <Text tag="span" color={TextColor.MAIN}>+380 (96) 456 24 83</Text>
                     </a>

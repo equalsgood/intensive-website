@@ -143,6 +143,19 @@
 }
 
 @media (max-width: 1279px) {
+    .anchor:hover {
+        color: var(--third-color);
+    }
+    .anchor:active {
+        color: #2957da;
+    }
+    .social:hover {
+        transform: scale(1);
+    }
+    .social:active {
+        transform: scale(1.2);
+    }
+
     .footer {
         padding: 56px 40px 80px;
     }
