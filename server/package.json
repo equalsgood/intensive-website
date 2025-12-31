@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon src/index.ts"
+    "dev": "nodemon src/server.ts"
   },
   "keywords": [],
   "author": "",
@@ -20,7 +20,9 @@
   "dependencies": {
     "body-parser": "^2.2.1",
     "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
     "express": "^5.2.1",
-    "node-telegram-bot-api": "^0.66.0"
+    "node-telegram-bot-api": "^0.66.0",
+    "zod": "^4.3.2"
   }
 }
