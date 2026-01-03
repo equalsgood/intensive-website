@@ -2,7 +2,7 @@ import TelegramBot from 'node-telegram-bot-api';
 import { config } from '../config';
 import { Bid } from "../types/form.types";
 
-const bot = new TelegramBot(config.BOT_TOKEN);
+export const bot = new TelegramBot(config.BOT_TOKEN);
 
 export const sendNewBid = async (bid: Bid) => {
     const date = new Date;
