@@ -2,6 +2,7 @@ import express = require('express');
 import cors = require('cors');
 import { Express } from "express";
 import { config } from "./config";
+import { errorHandler } from "./middlewares/error.middleware";
 import rootRouter from "./routes";
 
 const app: Express = express();
@@ -15,5 +16,7 @@ app.use(cors({
 }));
 
 app.use('/api', rootRouter);
+
+app.use(errorHandler);
 
 export default app;

@@ -63,13 +63,18 @@
     text-align: center;
 }
 
-.check {
+.check, .x {
     padding: 10px;
     border-radius: 50%;
     border: 8px solid limegreen;
     width: 160px;
     height: 160px;
     color: limegreen;
+}
+
+.x {
+    border: 8px solid indianred;
+    color: indianred;
 }
 
 .button {
@@ -196,11 +201,15 @@
         font-size: 20px;
     }
 
-    .check {
+    .check, .x {
         padding: 10px;
         border: 6px solid limegreen;
         width: 120px;
         height: 120px;
+    }
+
+    .x {
+        border: 6px solid indianred;
     }
 
     .button {
@@ -284,14 +293,18 @@
     }
 
     .submitted p {
-        font-size: 20px;
+        font-size: 18px;
     }
 
-    .check {
+    .check, .x {
         padding: 10px;
         border: 6px solid limegreen;
         width: 120px;
         height: 120px;
+    }
+
+    .x {
+        border: 6px solid indianred;
     }
 
     .button {
@@ -379,14 +392,18 @@
     }
 
     .submitted p {
-        font-size: 20px;
+        font-size: 16px;
     }
 
-    .check {
+    .check, .x {
         padding: 10px;
         border: 6px solid limegreen;
         width: 120px;
         height: 120px;
+    }
+
+    .x {
+        border: 6px solid indianred;
     }
 
     .button {

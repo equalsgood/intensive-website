@@ -4,18 +4,21 @@ import { AppRouter } from "./providers/AppRouter";
 import './styles/index.css';
 import { Footer, Header, ModalHandler } from "widgets";
 import { ContextProvider } from "app/providers/ContextProvider";
+import { ErrorBoundary } from "app/providers/ErrorBoundary";
 
 const App = () => {
     return (
         <BrowserRouter>
-            <ContextProvider>
-                <div className="app light">
-                    <Header/>
-                    <AppRouter/>
-                    <Footer/>
-                    <ModalHandler/>
-                </div>
-            </ContextProvider>
+            <ErrorBoundary>
+                <ContextProvider>
+                    <div className="app light">
+                        <Header/>
+                        <AppRouter/>
+                        <Footer/>
+                        <ModalHandler/>
+                    </div>
+                </ContextProvider>
+            </ErrorBoundary>
         </BrowserRouter>
     );
 };
