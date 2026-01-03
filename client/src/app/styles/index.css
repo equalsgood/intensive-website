@@ -12,3 +12,9 @@ html {
     overflow: hidden;
     position: relative;
 }
+
+.cf-turnstile,
+iframe[src*="challenges.cloudflare.com"] {
+    /* Prevent the iframe from stealing mouse pointer focus */
+    cursor: inherit !important;
+}

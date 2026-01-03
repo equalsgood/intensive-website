@@ -3,4 +3,5 @@ export interface Bid {
     email: string;
     phone: string;
     desc?: string;
+    turnstileToken: string | null;
 }

@@ -7,6 +7,7 @@ interface Config {
     CHAT_ID: string;
     MODE: string;
     FRONTEND_URL: string;
+    TURNSTILE: string;
 }
 
 const getEnv = (key: string, defaultValue?: string): string => {
@@ -25,4 +26,5 @@ export const config: Config = {
     CHAT_ID: getEnv('CHAT_ID'),
     MODE: getEnv('MODE', 'development'),
     FRONTEND_URL: getEnv('FRONTEND_URL'),
+    TURNSTILE: getEnv('TURNSTILE'),
 };

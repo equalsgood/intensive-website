@@ -1,18 +1,30 @@
 import React, { ChangeEvent, FormEvent, useContext, useState } from 'react';
 import validator from 'validator';
 import cls from './TryForFree.module.css';
-import { Button, ButtonVariants, Input, PhoneNumberInput, Text, TextColor, TextWeight } from "shared/components";
+import {
+    Button,
+    ButtonVariants,
+    Input,
+    Loader,
+    PhoneNumberInput,
+    Text,
+    TextColor,
+    TextWeight
+} from "shared/components";
 import { Step, StepProps } from "./components/Step";
 import step1 from 'shared/assets/images/steps/step1.png';
 import step2 from 'shared/assets/images/steps/step2.png';
 import step3 from 'shared/assets/images/steps/step3.png';
 import CheckIcon from 'shared/assets/icons/check.svg';
+import XMark from 'shared/assets/icons/x-mark.svg';
 import { E164Number } from "libphonenumber-js";
 import { isPossiblePhoneNumber, parsePhoneNumber } from 'react-phone-number-input'
 import classNames from "classnames";
 import CrossIcon from "shared/assets/icons/cross.svg";
 import { Context } from "app/providers/ContextProvider";
 import { createBid } from "api/api";
+import { useRequest } from "hooks";
+import { Turnstile } from '@marsidev/react-turnstile';
 
 const stepsConfig: Array<StepProps> = [
     { img: step1, text: 'Передзвонимо та відповимо на всі запитання' },
@@ -34,6 +46,10 @@ export const TryForFree = ({ isModal, onClose }: TryForFreeProps) => {
     const [email, setEmail] = useState('');
     const [isEmailValid, setIsEmailValid] = useState(undefined);
     const [area, setArea] = useState('');
+
+    const { isError, isLoading, request, setIsError, setIsLoading } = useRequest();
+
+    const [token, setToken] = useState<string | null>(null);
 
     const onNameChange = (e: ChangeEvent<HTMLInputElement>) => {
         const value = e.target.value;
@@ -66,18 +82,19 @@ export const TryForFree = ({ isModal, onClose }: TryForFreeProps) => {
 
     const submitHandler = async (e: FormEvent) => {
         e.preventDefault();
+
         if(name.length < 3) {
             setIsNameValid(false);
             return;
         }
 
-        if(!isNameValid || !isPhoneValid || !isEmailValid)
+        if(!isNameValid || !isPhoneValid || !isEmailValid || !token)
             return;
 
-        await createBid({
-            name, phone, email, desc: area
-        });
-        changeSubmittedStatus(true);
+        const data = { name, phone, email, desc: area, turnstileToken: token };
+        const succeed = await request(() => createBid(data));
+
+        changeSubmittedStatus(succeed);
         setName('');
         setIsNameValid(undefined);
         setPhone('' as E164Number);
@@ -89,6 +106,12 @@ export const TryForFree = ({ isModal, onClose }: TryForFreeProps) => {
             onClose(false);
     }
 
+    const goBack = () => {
+        changeSubmittedStatus(false);
+        setIsError(false);
+        setIsLoading(false);
+    };
+
     return (
         <section className={classNames(cls.section, {[cls.modal]: isModal})}>
             {isModal
@@ -99,8 +122,13 @@ export const TryForFree = ({ isModal, onClose }: TryForFreeProps) => {
                 : <Text tag="h2" color={TextColor.MAIN} weight={TextWeight.EXTRA_BOLD} classNamesProps={cls.title}>Спробуйте безкоштовно!</Text>
             }
             <div className={cls.content}>
-                {!isSubmitted
-                    ? <form onSubmit={(e) => submitHandler(e)} className={cls.formContainer}>
+                {isLoading &&
+                    <div className={cls.submitted}>
+                        <Loader adjustable />
+                    </div>
+                }
+                {(!isLoading && !isSubmitted && !isError) &&
+                    <form onSubmit={(e) => submitHandler(e)} className={cls.formContainer}>
                         <Input label="Ім'я" id="input-name" type="text" value={name} onChange={onNameChange}
                                isValid={isNameValid} invalidMessage="Введіть ім'я" maxLength={254}/>
                         <PhoneNumberInput value={phone} onChange={onPhoneChange} isValid={isPhoneValid}/>
@@ -118,10 +146,22 @@ export const TryForFree = ({ isModal, onClose }: TryForFreeProps) => {
                             rows={screenWidth >= 1280 ? 3 : 4}
                             maxLength={254}
                         />
-                        <Button type="submit" variant={ButtonVariants.ACTION_SECOND} classNamesProps={cls.button}
+                        <Turnstile
+                            options={{
+                                language: 'uk-ua',
+                                appearance: 'interaction-only',
+                                execution: 'render',
+                                theme: 'dark',
+                            }}
+                            siteKey="0x4AAAAAACKSUwdR_j3IjyAI"
+                            onSuccess={(token) => setToken(token)}
+                        />
+                        <Button disabled={!token} type="submit" variant={ButtonVariants.ACTION_SECOND} classNamesProps={cls.button}
                                 text="Залишити заявку"/>
                     </form>
-                    : <div className={cls.submitted}>
+                }
+                {(!isLoading && isSubmitted) &&
+                    <div className={cls.submitted}>
                         <div>
                             <Text tag="h3" color={TextColor.REVERSED} weight={TextWeight.BOLD}>
                                 Дякуємо за інформацію!
@@ -132,7 +172,22 @@ export const TryForFree = ({ isModal, onClose }: TryForFreeProps) => {
                         </div>
                         <CheckIcon className={cls.check}/>
                         <Button type="button" variant={ButtonVariants.ACTION_SECOND} classNamesProps={cls.button}
-                                text="Повернутись" onClick={() => changeSubmittedStatus(false)}/>
+                                text="Повернутись" onClick={goBack}/>
+                    </div>
+                }
+                {(!isLoading && isError) &&
+                    <div className={cls.submitted}>
+                        <div>
+                            <Text tag="h3" color={TextColor.REVERSED} weight={TextWeight.BOLD}>
+                                Трапилась помилка!
+                            </Text>
+                            <Text tag="p" color={TextColor.REVERSED} weight={TextWeight.MEDIUM}>
+                                Вибачте за незручності, просимо зв'язатись з нами самостійно за телефоном +380 96 456 24 83
+                            </Text>
+                        </div>
+                        <XMark className={cls.x}/>
+                        <Button type="button" variant={ButtonVariants.ACTION_SECOND} classNamesProps={cls.button}
+                                text="Повернутись" onClick={goBack}/>
                     </div>
                 }
                 {((isModal && !isTablet) || !isModal) &&

@@ -43,7 +43,15 @@
     padding: 50px;
     display: flex;
     flex-direction: column;
+    gap: 14px;
+}
+
+.submitted {
     gap: 30px;
+}
+
+.form-container input {
+    margin-bottom: 16px;
 }
 
 .submitted {
@@ -83,7 +91,7 @@
     height: 44px;
     font-size: 16px;
     font-weight: var(--font-weight-m);
-    margin-top: 10px;
+    margin-top: 16px;
 }
 
 .button:hover, .submitted .button:hover {
@@ -143,6 +151,16 @@
     max-height: 100%;
 }
 
+.form-container input:focus,
+.form-container textarea:focus {
+    cursor: text !important;
+}
+
+.form-container input:hover,
+.form-container textarea:hover {
+    cursor: text !important;
+}
+
 @media (max-width: 1279px) {
     .section {
         gap: 20px;
@@ -179,8 +197,16 @@
     .form-container, .submitted {
         width: 470px;
         padding: 26px 30px 30px;
-        gap: 20px;
+        gap: 8px;
         flex-shrink: 0;
+    }
+
+    .submitted {
+        gap: 20px;
+    }
+
+    .form-container input {
+        margin-bottom: 12px;
     }
 
     .modal .form-container, .modal .submitted {
@@ -218,7 +244,7 @@
         height: 44px;
         font-size: 16px;
         font-weight: var(--font-weight-m);
-        margin-top: 10px;
+        margin-top: 12px;
     }
 
     .button:hover, .submitted .button:hover {
@@ -276,9 +302,16 @@
     .form-container, .submitted {
         width: 100%;
         padding: 30px 40px 36px;
-        gap: 24px;
+        gap: 10px;
         flex-shrink: 0;
-        align-items: flex-end;
+    }
+
+    .submitted {
+        gap: 24px;
+    }
+
+    .form-container input {
+        margin-bottom: 14px;
     }
 
     .submitted {
@@ -313,7 +346,10 @@
         height: 44px;
         font-size: 16px;
         font-weight: var(--font-weight-m);
-        margin-top: 10px;
+    }
+
+    .form-container .button {
+        margin: 14px 0 0 auto;
     }
 
     .button:hover, .submitted .button:hover {
@@ -378,7 +414,15 @@
 
     .form-container, .submitted {
         padding: 20px 24px 30px;
+        gap: 8px;
+    }
+
+    .submitted {
         gap: 18px;
+    }
+
+    .form-container input {
+        margin-bottom: 10px;
     }
 
     .submitted {
@@ -413,6 +457,10 @@
         font-size: 16px;
         font-weight: var(--font-weight-m);
         margin-top: 10px;
+    }
+
+    .form-container .button {
+        margin: 10px 0 0 auto;
     }
 
     .description-container {
