@@ -10,12 +10,12 @@ import { Context } from "app/providers/ContextProvider";
 import home from "shared/assets/images/home.png";
 
 const linksConfig: Array<CustomLinkCardProps> = [
-    { to: RoutePaths.FAQ, img: questionMark, description: "Сторінка з відповідями на поширені запитання", title: "Залишились запитання?" },
-    { to: RoutePaths.LOCATIONS, img: map, description: "Сторінка з розташуванням наших філій", title: "Де ми знаходимось?" },
-    { to: RoutePaths.CONTACTS, img: contactUs, description: "Сторінка з контактами репетиторського центру", title: "Хочете зв'язатись?" },
+    { to: RoutePaths.FAQ, img: questionMark, description: "Сторінка з відповідями на поширені запитання", title: "Залишилися запитання?" },
+    { to: RoutePaths.LOCATIONS, img: map, description: "Сторінка з розташуванням наших філій", title: "Де ми розташовані?" },
+    { to: RoutePaths.CONTACTS, img: contactUs, description: "Сторінка з контактами репетиторського центру", title: "Бажаєте зв’язатися?" },
 ];
 
-const pageLink: CustomLinkCardProps = { to: RoutePaths.HOME, img: home, description: "Сторінка з усією основною інформацією про центр", title: "Домашня сторінка" }
+const pageLink: CustomLinkCardProps = { to: RoutePaths.HOME, img: home, description: "Сторінка з усією основною інформацією про центр", title: "Головна сторінка" }
 
 const HomePage = () => {
     const { changeIsHomepageLoaded } = useContext(Context);

@@ -37,6 +37,7 @@
     height: 50px;
     color: var(--second-opacity-color);
     transition: all 1s;
+    flex-shrink: 0;
 }
 
 .opened .question-container svg {

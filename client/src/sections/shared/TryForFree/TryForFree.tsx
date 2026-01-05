@@ -27,9 +27,9 @@ import { useRequest } from "hooks";
 import { Turnstile } from '@marsidev/react-turnstile';
 
 const stepsConfig: Array<StepProps> = [
-    { img: step1, text: 'Передзвонимо та відповимо на всі запитання' },
+    { img: step1, text: 'Перетелефонуємо та відповімо на всі запитання' },
     { img: step2, text: 'Запишемо на безкоштовне пробне заняття' },
-    { img: step3, text: 'Після розрахуємо фінальну вартість з урахуванням можливих пільг, поточних знижок та обраного пакету' }
+    { img: step3, text: 'Розрахуємо фінальну вартість з урахуванням пільг, поточних знижок та обраного пакета' }
 ]
 
 interface TryForFreeProps {
@@ -140,7 +140,7 @@ export const TryForFree = ({ isModal, onClose }: TryForFreeProps) => {
                             textArea
                             id="text-area-additional"
                             type="area"
-                            placeholder="У цьому полі Ви можете вказати будь-яку інформацію, наприклад: вік учня, рівень знань, бажаний розклад, мета навчання тощо"
+                            placeholder="У цьому полі ви можете вказати будь-яку інформацію, наприклад: вік учня, рівень знань, бажаний розклад, мету навчання тощо"
                             value={area}
                             onChange={onAreaChange}
                             rows={screenWidth >= 1280 ? 3 : 4}
@@ -149,7 +149,7 @@ export const TryForFree = ({ isModal, onClose }: TryForFreeProps) => {
                         <Turnstile
                             options={{
                                 language: 'uk-ua',
-                                appearance: 'interaction-only',
+                                appearance: 'always',
                                 execution: 'render',
                                 theme: 'dark',
                             }}
@@ -193,7 +193,7 @@ export const TryForFree = ({ isModal, onClose }: TryForFreeProps) => {
                 {((isModal && !isTablet) || !isModal) &&
                     <div className={cls.descriptionContainer}>
                         <Text tag="h3" weight={TextWeight.BOLD} color={TextColor.MAIN} classNamesProps={cls.subtitle}>
-                            Ми зв'яжемось з Вами протягом дня
+                            Ми зв’яжемося з вами протягом дня
                         </Text>
                         <ul className={cls.steps}>
                             {stepsConfig.map(({img, text}) =>

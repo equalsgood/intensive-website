@@ -10,9 +10,9 @@ import contactUs from "shared/assets/images/contact-us.png";
 import questionMark from "shared/assets/images/question-mark.png";
 
 const linksConfig: Array<CustomLinkCardProps> = [
-    { to: RoutePaths.HOME, img: home, description: "Сторінка з усією основною інформацією про центр", title: "Домашня сторінка" },
-    { to: RoutePaths.LOCATIONS, img: map, description: "Сторінка з розташуванням наших філій", title: "Де ми знаходимось?" },
-    { to: RoutePaths.CONTACTS, img: contactUs, description: "Сторінка з контактами репетиторського центру", title: "Хочете зв'язатись?" },
+    { to: RoutePaths.HOME, img: home, description: "Сторінка з усією основною інформацією про центр", title: "Головна сторінка" },
+    { to: RoutePaths.LOCATIONS, img: map, description: "Сторінка з розташуванням наших філій", title: "Де ми розташовані?" },
+    { to: RoutePaths.CONTACTS, img: contactUs, description: "Сторінка з контактами репетиторського центру", title: "Бажаєте зв’язатися?" },
 ];
 
 const pageLink: CustomLinkCardProps = {

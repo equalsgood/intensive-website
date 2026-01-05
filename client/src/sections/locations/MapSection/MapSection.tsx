@@ -8,10 +8,10 @@ export const MapSection = () => {
     return (
         <section className={cls.section}>
             <Text tag="h1" color={TextColor.MAIN} weight={TextWeight.EXTRA_BOLD}>
-                Ми знаходимось у місті Дніпро
+                Ми розташовані в місті Дніпро
             </Text>
             <Text tag="p" color={TextColor.MAIN} weight={TextWeight.SEMI_BOLD}>
-                На цій сторінці ви можете подивитись адреси філій у м. Дніпро та вирішити для себе що для вас зручніше - заняття у репетиторскьму центрі чи онлайн
+                На цій сторінці ви можете переглянути адреси філій у м. Дніпро та обрати найзручніший формат: заняття в репетиторському центрі чи онлайн.
             </Text>
             <div className={cls.mapWrapper}>
                 <img className={cls.map} src={ukraineMap} alt="ukraine map"/>

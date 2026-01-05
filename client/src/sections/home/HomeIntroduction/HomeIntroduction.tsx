@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import classes from './HomeIntroduction.module.css';
 import { Button, ButtonVariants, Text, TextColor, TextWeight } from "shared/components";
 import studentImage1 from 'shared/assets/images/student-1.png';
@@ -18,48 +18,57 @@ export const HomeIntroduction = () => {
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
     const [appear, setAppear] = useState(true);
     const { changeModalVisibility } = useContext(Context);
+    const intervalRef = useRef<NodeJS.Timeout | null>(null);
+    const changeImageTimeout = useRef<NodeJS.Timeout | null>(null);
+    const changeOpacityTimeout = useRef<NodeJS.Timeout | null>(null);
 
     useEffect(() => {
-        const interval = setInterval(() => {
+        intervalRef.current = setInterval(() => {
             setAppear(false);
-            setTimeout(() => {
+            changeImageTimeout.current = setTimeout(() => {
                 setCurrentImageIndex(prev => {
                     let newIndex = prev + 1;
                     if(newIndex > (images.length - 1))
                         newIndex = 0;
                     return newIndex;
                 })
+            }, 2000);
+            changeOpacityTimeout.current = setTimeout(() => {
                 setAppear(true);
             }, 2500);
         }, 8000);
 
-        return () => clearInterval(interval);
+        return () => {
+            clearInterval(intervalRef.current);
+            clearTimeout(changeOpacityTimeout.current);
+            clearTimeout(changeImageTimeout.current);
+        };
     },[]);
 
     return (
         <section className={classes.intro}>
             <div className={classes.container}>
                 <div className={classes.action}>
-                    <Text tag='h1' color={TextColor.MAIN} weight={TextWeight.BOLD}>Якісне навчання англійської у місті Дніпро</Text>
-                    <Text tag='p' classNamesProps={classes.subtitle} weight={TextWeight.SEMI_BOLD} color={TextColor.MAIN}>Разом з
+                    <Text tag='h1' color={TextColor.MAIN} weight={TextWeight.BOLD}>Якісне навчання англійської в місті Дніпро</Text>
+                    <Text tag='p' classNamesProps={classes.subtitle} weight={TextWeight.SEMI_BOLD} color={TextColor.MAIN}>Разом із
                         репетиторським центром для дітей та студентів "Інтенсив"</Text>
                     <Button classNamesProps={classes.button} type='button' variant={ButtonVariants.ACTION}
-                            text='Спробувати безкоштовно' onClick={() => changeModalVisibility(true)}></Button>
+                            text='Спробуйте безкоштовно' onClick={() => changeModalVisibility(true)}></Button>
                 </div>
-                <div className={classes.imageContainer}>
-                    <img className={classNames(classes.image, {[classes.appear]: appear})}
+                <div className={classNames(classes.imageContainer, {[classes.appear]: appear})}>
+                    <img className={classes.image}
                          src={images[currentImageIndex]} alt="image of a happy student"/>
                 </div>
             </div>
             <ul className={classes.features}>
                 <SingleFeature img={feature1} boldText='Заняття з викладачем, '
-                               plainText='який полюбляє свій предмет та знає, як зацікавити їм дитину'/>
-                <SingleFeature img={feature2} boldText='У парах або індивідуально '
-                               plainText='у будь який зручний для Вас час'/>
-                <SingleFeature img={feature3} boldText='Займайтесь з будь якого міста у світі: '
-                               plainText='в одному з наших філіалів, або онлайн з викладачем Інтенсиву'/>
-                <SingleFeature img={feature4} boldText='Програма для всіх, '
-                               plainText='яку ми розробляємо індивідуально під кожну дитину'/>
+                               plainText='який любить свій предмет та знає, як зацікавити ним дитину'/>
+                <SingleFeature img={feature2} boldText='У парах або індивідуально —'
+                               plainText='в будь-який зручний для вас час та в будь-якому зручному для вас форматі'/>
+                <SingleFeature img={feature3} boldText='Займайтеся з будь-якого міста світу: '
+                               plainText='в одній із наших філій або онлайн із викладачем "Інтенсиву"'/>
+                <SingleFeature img={feature4} boldText='Персоналізована програма, '
+                               plainText='яку ми розробляємо з урахуванням цілей кожного студента'/>
             </ul>
             <video autoPlay loop muted src={backgroundVideo} className={classes.video}/>
         </section>

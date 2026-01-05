@@ -14,11 +14,11 @@ import { Context } from "app/providers/ContextProvider";
 
 const englishSubject: ISubject = { title: 'Англійська мова', bgColor: '#D6FBBD'};
 const teachersConfig: Array<TeacherProps> = [
-    { name: 'Артем Бабак', img: teacher1, subject: englishSubject, description: 'Керівник філії на Театральній, розробник матеріалів з методики викладання англійської мови, автор навчально-методичних посібників', bg: '#ffe074' },
-    { name: 'Юлія Коновалова', img: teacher3, subject: englishSubject, description: 'Заступник керівника філії на Театральній, сертифікований експерт із підготовки до міжнародних іспитів', bg: '#ffe074' },
-    { name: 'Ідоґа Чісом', img: teacher5, subject: englishSubject, description: 'Керівник розмовних клубів з англійської мови з досвідом понад 4 роки', bg: '#ffe074' },
-    { name: 'Олена Макаренко', img: teacher2, subject: englishSubject, description: 'Фахівець з адаптивного навчання англійській мові, методист зі створення інтерактивних навчальних матеріалів', bg: '#ffe074' },
-    { name: "Уляна Воробйова", img: teacher4, subject: englishSubject, description: 'Переможець Всеукраїнскьх олімпіад з англійської мови, експерт НМТ', bg: '#ffe074' },
+    { name: 'Артем Бабак', img: teacher1, subject: englishSubject, description: 'Керівник філії на Театральній, розробник методичних матеріалів із викладання англійської мови, автор навчальних посібників', bg: '#ffe074' },
+    { name: 'Юлія Коновалова', img: teacher3, subject: englishSubject, description: 'Заступниця керівника філії на Театральній, сертифікована експертка з підготовки до міжнародних іспитів', bg: '#ffe074' },
+    { name: 'Ідога Чісом', img: teacher5, subject: englishSubject, description: 'Керівник розмовних клубів з англійської мови з досвідом понад 4 роки', bg: '#ffe074' },
+    { name: 'Олена Макаренко', img: teacher2, subject: englishSubject, description: 'Фахівчиня з адаптивного навчання англійської мови, методистка зі створення інтерактивних матеріалів', bg: '#ffe074' },
+    { name: "Уляна Воробйова", img: teacher4, subject: englishSubject, description: 'Переможниця Всеукраїнських олімпіад з англійської мови, експертка з НМТ', bg: '#ffe074' },
 ]
 
 export const Teachers = () => {
@@ -71,10 +71,8 @@ export const Teachers = () => {
                         : <Text tag="h2" color={TextColor.MAIN} weight={TextWeight.EXTRA_BOLD}>ЗНАЄМО,<br/>ЯК
                             НАВЧАТИ</Text>
                     }
-                    <Text tag="p" color={TextColor.MAIN} weight={TextWeight.MEDIUM}>Наші викладачі розкажуть, як
-                        підготуватися до іспитів, допоможуть упоратися зі складним завданням і перемогти на
-                        олімпіаді.</Text>
-                    <Text tag="p" color={TextColor.MAIN} weight={TextWeight.MEDIUM}>Пояснять про підводні камені іспитів та найпоширеніші помилки, а також розкажуть, як їх уникнути.</Text>
+                    <Text tag="p" color={TextColor.MAIN} weight={TextWeight.MEDIUM}>Наші викладачі допоможуть підготуватися до іспитів, упоратися зі складними завданнями та перемогти на олімпіаді.</Text>
+                    <Text tag="p" color={TextColor.MAIN} weight={TextWeight.MEDIUM}>Пояснять про «підводні камені» іспитів і найпоширеніші помилки, а також навчать, як їх уникнути.</Text>
                 </div>
                 {!isTablet && <div className={classes.divider}/>}
                 <Carousel

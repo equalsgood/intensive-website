@@ -109,8 +109,8 @@ export const Footer = () => {
                             Подзвонити нам
                         </Text>
                         <Text tag="p" color={TextColor.REVERSED} weight={TextWeight.MEDIUM}>
-                            Будні 9:00 - 21:00<br/>
-                            Вихідні 10:00 - 18:00
+                            Будні 9:00 – 21:00<br/>
+                            Вихідні 10:00 – 18:00
                         </Text>
                         <CustomLink to={Anchors.PHONE} variant={CustomLinkVariants.ANCHOR} classNamesProps={cls.anchor}>
                             +380 (96) 456 24 83
@@ -124,18 +124,18 @@ export const Footer = () => {
                             Замовити дзвінок
                         </Text>
                         <Text tag="p" color={TextColor.REVERSED} weight={TextWeight.MEDIUM}>
-                            Ви можете заповнити форму
-                            <br/>та ми самі Вам зателефонуємо
+                            Ви можете заповнити форму,
+                            <br/>і ми самі вам зателефонуємо
                         </Text>
                         <Button classNamesProps={cls.button} type="button" variant={ButtonVariants.ACTION_SECOND}
                                 text="Замовити дзвінок" onClick={() => changeModalVisibility(true)}/>
                     </div>
                     <div className={cls.rights}>
                         <Text tag="span" color={TextColor.REVERSED} weight={TextWeight.NORMAL}>
-                        Розроблено командою репетиторського центру «Інтенсив» з любов'ю
+                        Розроблено командою репетиторського центру «Інтенсив» із любов'ю
                         </Text>
                         <Text tag="span" color={TextColor.REVERSED} weight={TextWeight.NORMAL}>
-                            Всі права захищені
+                            Усі права захищені
                         </Text>
                         <Text tag="span" color={TextColor.REVERSED} weight={TextWeight.NORMAL}>
                             {`2023 - ${year}`}

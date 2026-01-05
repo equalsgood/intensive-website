@@ -16,7 +16,7 @@ export const Branches = () => {
                             Театральна
                         </Text>
                         <Text tag="p" weight={TextWeight.MEDIUM} color={TextColor.MAIN}>
-                            <Text tag="span" weight={TextWeight.BOLD} color={TextColor.MAIN}>Місцезнаходження: </Text>Театральна 3, р-н вул. Робоча, двоповерхова будівля праворуч від податкової, навпроти Державного Дніпровського проектного інституту.
+                            <Text tag="span" weight={TextWeight.BOLD} color={TextColor.MAIN}>Адреса: </Text>вул. Театральна, 3 (р-н вул. Робочої), двоповерхова будівля праворуч від податкової, навпроти Державного Дніпровського проектного інституту.
                         </Text>
                         <img src={branch} alt="photo of a building"/>
                     </div>
