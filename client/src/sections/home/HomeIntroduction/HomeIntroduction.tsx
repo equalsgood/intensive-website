@@ -70,7 +70,17 @@ export const HomeIntroduction = () => {
                 <SingleFeature img={feature4} boldText='Персоналізована програма, '
                                plainText='яку ми розробляємо з урахуванням цілей кожного студента'/>
             </ul>
-            <video autoPlay loop muted src={backgroundVideo} className={classes.video}/>
+            <video
+                autoPlay
+                loop
+                muted
+                playsInline
+                webkit-playsinline="true"
+                disablePictureInPicture
+                src={backgroundVideo}
+                className={classes.video}
+                preload="auto"
+            />
         </section>
     );
 };

@@ -129,6 +129,7 @@
     height: 100%;
     z-index: var(--background-z-index);
     object-fit: cover;
+    pointer-events: none;
 }
 
 
