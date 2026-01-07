@@ -2,9 +2,11 @@ import HTMLWebpackPlugin from "html-webpack-plugin";
 import webpack from "webpack";
 import { BuildOptions } from "./types/config";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
+import Dotenv from 'dotenv-webpack';
 
 export function buildPlugins({paths}: BuildOptions): webpack.WebpackPluginInstance[] {
     return [
+        new Dotenv(),
         new HTMLWebpackPlugin({
             template: paths.html,
         }),

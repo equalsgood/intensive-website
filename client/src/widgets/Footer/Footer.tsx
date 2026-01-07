@@ -18,7 +18,7 @@ import { Anchors, HomePaths, RoutePaths } from "app/providers/AppRouter";
 import TelegramIcon from "shared/assets/icons/social/tg.svg";
 import WhatsUpIcon from "shared/assets/icons/social/wup.svg";
 import ViberIcon from "shared/assets/icons/social/viber.svg";
-import InstIcon from "shared/assets/icons/social/inst.svg";
+import InstIcon from "shared/assets/icons/social/inst-white.svg";
 import { Context } from "app/providers/ContextProvider";
 
 export const Footer = () => {

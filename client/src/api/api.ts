@@ -3,7 +3,7 @@ import axios from "axios";
 
 export const createBid = async (bid: Bid) => {
     try {
-        return await axios.post('http://localhost:5000/api/form/submit', {
+        return await axios.post(`${process.env.API}/api/form/submit`, {
             ...bid
         })
     } catch (e) {

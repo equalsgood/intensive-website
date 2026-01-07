@@ -8,5 +8,10 @@ export function buildResolvers(options: BuildOptions): ResolveOptions {
         mainFiles: ['index'],
         alias: {},
         extensions: ['.tsx', '.ts', '.js'],
+        fallback: {
+            "crypto": false,
+            "path": false,
+            "os": false
+        }
     }
 }
