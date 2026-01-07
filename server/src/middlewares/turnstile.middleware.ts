@@ -34,7 +34,7 @@ export const validateTurnstile = async (
             }
         );
 
-        const data: TurnstileResponse = await response.json();
+        const data = await response.json() as TurnstileResponse;
 
         if (data.success) {
             return next();
