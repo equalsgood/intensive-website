@@ -29,6 +29,11 @@
     transition: transform 0.2s;
 }
 
+.switch svg {
+    height: 27px;
+    width: 27px;
+}
+
 .right {
     transform: rotate(180deg);
 }
@@ -342,5 +347,10 @@
         height: 40px;
         width: 40px;
         transition: transform 0.2s;
+    }
+
+    .switch svg {
+        height: 20px;
+        width: 20px;
     }
 }

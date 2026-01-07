@@ -20,3 +20,13 @@ img {
     -webkit-user-select: none;
     -ms-user-select: none;
 }
+
+input, button, textarea {
+    -webkit-appearance: none;
+    appearance: none;
+    border-radius: 0;
+}
+
+svg {
+    flex-shrink: 0;
+}

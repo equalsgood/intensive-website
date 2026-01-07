@@ -1,7 +1,7 @@
 .header {
     background: transparent;
     width: 100%;
-    height: 100vh;
+    height: 100dvh;
     max-height: var(--header-full-height);
     position: absolute;
     top: 0;
@@ -26,7 +26,7 @@
 
 .opened.header {
     background: var(--second-color);
-    max-height: 100vh;
+    max-height: 100dvh;
 }
 
 .opened.header.fixed {
@@ -35,7 +35,7 @@
 
 .nav {
     width: 100%;
-    height: 100vh;
+    height: 100dvh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -105,6 +105,7 @@
     position: absolute;
     top: 0;
     width: 100%;
+    height: 100%;
     color: var(--third-color);
     transform: rotate(-45deg);
     opacity: 0;
