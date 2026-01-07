@@ -6,7 +6,9 @@ import Dotenv from 'dotenv-webpack';
 
 export function buildPlugins({paths}: BuildOptions): webpack.WebpackPluginInstance[] {
     return [
-        new Dotenv(),
+        new Dotenv({
+            systemvars: true
+        }),
         new HTMLWebpackPlugin({
             template: paths.html,
         }),
