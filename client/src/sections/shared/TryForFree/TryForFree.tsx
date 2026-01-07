@@ -152,6 +152,7 @@ export const TryForFree = ({ isModal, onClose }: TryForFreeProps) => {
                                 appearance: 'always',
                                 execution: 'render',
                                 theme: 'dark',
+                                size: screenWidth >= 400 ? 'normal' : 'compact'
                             }}
                             siteKey="0x4AAAAAACKSUwdR_j3IjyAI"
                             onSuccess={(token) => setToken(token)}
