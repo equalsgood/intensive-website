@@ -499,3 +499,38 @@
         font-size: 14px;
     }
 }
+
+@media (max-width: 400px) {
+    .turnstile {
+        transform: scale(0.9) translateX(-17px);
+    }
+
+    .modal .turnstile {
+        transform: scale(0.8) translateX(-36px);
+    }
+
+    .section form textarea::placeholder {
+        font-size: 13px;
+    }
+
+    .modal .title {
+        font-size: 19px;
+    }
+
+    .title {
+        font-size: 22px;
+    }
+
+    .section {
+        gap: 10px;
+    }
+
+    .form-container {
+        gap: 2px;
+    }
+
+    .form-container .button {
+        margin: 4px 0;
+        width: 100%;
+    }
+}

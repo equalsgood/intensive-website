@@ -147,12 +147,13 @@ export const TryForFree = ({ isModal, onClose }: TryForFreeProps) => {
                             maxLength={254}
                         />
                         <Turnstile
+                            className={cls.turnstile}
                             options={{
                                 language: 'uk-ua',
                                 appearance: 'always',
                                 execution: 'render',
                                 theme: 'dark',
-                                size: screenWidth >= 400 ? 'normal' : 'compact'
+                                size: 'normal'
                             }}
                             siteKey="0x4AAAAAACKSUwdR_j3IjyAI"
                             onSuccess={(token) => setToken(token)}

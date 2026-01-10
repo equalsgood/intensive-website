@@ -136,3 +136,11 @@
         transform: scale(1);
     }
 }
+
+@media (max-width: 400px) {
+    .icon {
+        padding: 2px;
+        width: 32px;
+        height: 32px;
+    }
+}

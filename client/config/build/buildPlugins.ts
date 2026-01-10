@@ -11,6 +11,7 @@ export function buildPlugins({paths}: BuildOptions): webpack.WebpackPluginInstan
         }),
         new HTMLWebpackPlugin({
             template: paths.html,
+            favicon: paths.favicon
         }),
         new webpack.ProgressPlugin(),
         new MiniCssExtractPlugin({
