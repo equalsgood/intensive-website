@@ -77,8 +77,8 @@ export const ContactsSection = () => {
                         </Text>
                         <div className={cls.socials}>
                             <a target="_blank" href={contactsLinks.telegram}><TelegramIcon className={cls.social}/></a>
-                            <a target="_blank" href={contactsLinks.telegram}><WhatsUpIcon className={cls.social}/></a>
-                            <a target="_blank" href={contactsLinks.telegram}><ViberIcon className={cls.social}/></a>
+                            <a target="_blank" href='https://wa.me/380964562483'><WhatsUpIcon className={cls.social}/></a>
+                            <a target="_blank" href='viber://chat/?number=%2B380964562483'><ViberIcon className={cls.social}/></a>
                             <a target="_blank" href={contactsLinks.inst}><InstIcon className={cls.social}/></a>
                         </div>
                     </div>

@@ -87,6 +87,13 @@
     opacity: 0.9;
 }
 
+.hover-container span {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
 @media (max-width: 1399px) {
     .features {
         width: max-content;
@@ -225,11 +232,12 @@
 
     .hover-container {
         padding: 8px 16px;
-        gap: 2px;
+        gap: 4px;
         list-style: none;
     }
 
     .hover-container span {
+        display: inline-block;
         font-size: 12px;
         line-height: 14px;
     }
