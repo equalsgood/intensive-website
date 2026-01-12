@@ -16,6 +16,7 @@ const App = () => {
                         <AppRouter/>
                         <Footer/>
                         <ModalHandler/>
+                        <div className="tg-block"/>
                     </div>
                 </ContextProvider>
             </ErrorBoundary>
