@@ -5,6 +5,10 @@
       "destination": "/sitemap.xml"
     },
     {
+      "source": "/og-share-image.jpg",
+      "destination": "/og-share-image.jpg"
+    },
+    {
       "source": "/(.*)",
       "destination": "/index.html"
     }

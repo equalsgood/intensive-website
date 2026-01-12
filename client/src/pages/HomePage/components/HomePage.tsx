@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from 'react';
 import { HomeIntroduction, StudyingPrograms, Teachers, WhyWe, Testimonials } from "sections/home";
 import { CustomLinkCardProps, TryForFree, UsefulLinks } from "sections/shared";
-import { Divider } from 'shared/components'
+import { Divider, SEO } from 'shared/components'
 import { RoutePaths } from "app/providers/AppRouter";
 import questionMark from "shared/assets/images/question-mark.png";
 import map from "shared/assets/images/map.png";
@@ -26,16 +26,22 @@ const HomePage = () => {
     }, []);
 
     return (
-        <main>
-            <HomeIntroduction/>
-            <StudyingPrograms/>
-            <WhyWe/>
-            <Teachers/>
-            <Testimonials/>
-            <TryForFree isModal={false}/>
-            <Divider/>
-            <UsefulLinks pageLink={pageLink} links={linksConfig}/>
-        </main>
+        <>
+            <SEO
+                title="Репетиторський центр «Інтенсив» — Курси англійської мови"
+                description="Англійська для дітей та дорослих у Дніпрі та онлайн. Інтенсивні програми, підготовка до НМТ/іспитів та розмовні клуби. Спробуйте безкоштовно вже зараз!"
+            />
+            <main>
+                <HomeIntroduction/>
+                <StudyingPrograms/>
+                <WhyWe/>
+                <Teachers/>
+                <Testimonials/>
+                <TryForFree isModal={false}/>
+                <Divider/>
+                <UsefulLinks pageLink={pageLink} links={linksConfig}/>
+            </main>
+        </>
     );
 };
 

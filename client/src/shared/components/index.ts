@@ -10,6 +10,7 @@ import { Modal } from './Modal/Modal';
 import { Loader } from './Loader/Loader';
 import { DottedCarousel } from './DottedCarousel/DottedCarousel';
 import { Dropdown } from './Dropdown/Dropdown';
+import { SEO } from './SEO/SEO';
 
 export {
     Text,
@@ -29,5 +30,6 @@ export {
     Modal,
     Loader,
     DottedCarousel,
-    Dropdown
+    Dropdown,
+    SEO
 }

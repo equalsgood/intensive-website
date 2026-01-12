@@ -2,7 +2,7 @@ import React from 'react';
 import { QuestionAnswers } from "sections/faq";
 import cls from './FaqPage.module.css';
 import { CustomLinkCardProps, UsefulLinks } from "sections/shared";
-import { Divider } from "shared/components";
+import { Divider, SEO } from "shared/components";
 import { RoutePaths } from "app/providers/AppRouter";
 import home from "shared/assets/images/home.png";
 import map from "shared/assets/images/map.png";
@@ -21,11 +21,18 @@ const pageLink: CustomLinkCardProps = {
 
 const FaqPage = () => {
     return (
-        <main className={cls.main}>
-            <QuestionAnswers/>
-            <Divider/>
-            <UsefulLinks links={linksConfig} pageLink={pageLink}/>
-        </main>
+        <>
+            <SEO
+                title="Поширені запитання про навчання — Репетиторський центр «Інтенсив»"
+                description="Дізнайтеся все про вартість навчання, графік занять та методику викладання в нашому центрі. Відповідаємо на головні запитання майбутніх студентів."
+                url="https://intensiveschool.com.ua/faq"
+            />
+            <main className={cls.main}>
+                <QuestionAnswers/>
+                <Divider/>
+                <UsefulLinks links={linksConfig} pageLink={pageLink}/>
+            </main>
+        </>
     );
 };
 

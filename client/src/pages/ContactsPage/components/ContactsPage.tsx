@@ -1,7 +1,7 @@
 import React from 'react';
 import cls from './ContactsPage.module.css';
 import { ContactsSection } from "sections/contacts";
-import { Divider } from "shared/components";
+import { Divider, SEO } from "shared/components";
 import { CustomLinkCardProps, UsefulLinks } from "sections/shared";
 import { RoutePaths } from "app/providers/AppRouter";
 import home from "shared/assets/images/home.png";
@@ -21,11 +21,18 @@ const pageLink: CustomLinkCardProps = {
 
 const ContactsPage = () => {
     return (
-        <main className={cls.main}>
-            <ContactsSection/>
-            <Divider/>
-            <UsefulLinks links={linksConfig} pageLink={pageLink}/>
-        </main>
+        <>
+            <SEO
+                title="Контакти репетиторського центру «Інтенсив» у Дніпрі"
+                description="Зв’яжіться з нами для запису на курси англійської. Телефон, адреса у Дніпрі та форма зворотного зв’язку. Ми завжди раді відповісти на ваші запитання!"
+                url="https://intensiveschool.com.ua/contacts"
+            />
+            <main className={cls.main}>
+                <ContactsSection/>
+                <Divider/>
+                <UsefulLinks links={linksConfig} pageLink={pageLink}/>
+            </main>
+        </>
     );
 };
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Branches, MapSection } from "sections/locations";
 import cls from './LocationsPage.module.css';
-import { Divider } from "shared/components";
+import { Divider, SEO } from "shared/components";
 import { CustomLinkCardProps, UsefulLinks } from "sections/shared";
 import { RoutePaths } from "app/providers/AppRouter";
 import home from "shared/assets/images/home.png";
@@ -19,12 +19,19 @@ const pageLink: CustomLinkCardProps = { to: RoutePaths.LOCATIONS, img: map, desc
 
 const LocationsPage = () => {
     return (
-        <main className={cls.main}>
-            <MapSection/>
-            <Branches/>
-            <Divider/>
-            <UsefulLinks pageLink={pageLink} links={linksConfig}/>
-        </main>
+        <>
+            <SEO
+                title="Англійська у Дніпрі та онлайн — Розташування репетиторського центру"
+                description="Шукаєте курси англійської поруч? Наша адреса у Дніпрі, карта проїзду та графік роботи. Завітайте до «Інтенсиву» на безкоштовну консультацію!"
+                url="https://intensiveschool.com.ua/locations"
+            />
+            <main className={cls.main}>
+                <MapSection/>
+                <Branches/>
+                <Divider/>
+                <UsefulLinks pageLink={pageLink} links={linksConfig}/>
+            </main>
+        </>
     );
 };
 
