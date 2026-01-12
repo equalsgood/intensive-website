@@ -67,9 +67,7 @@
     .link:hover {
         transform: unset;
     }
-    .link:active {
-        transform: translateY(-10px);
-    }
+
     .arrow.hover {
         transform: rotate(135deg);
     }
