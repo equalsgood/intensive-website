@@ -9,6 +9,7 @@ import WhatsUpIcon from "shared/assets/icons/social/wup.svg";
 import MailIcon from "shared/assets/icons/social/mail.svg";
 import PhoneIcon from "shared/assets/icons/social/phone.svg";
 import { Context } from "app/providers/ContextProvider";
+import { Anchors } from "app/providers/AppRouter";
 
 const questionsConfig: Array<SingleQAProps> = [
     // БЛОК 1: ЗНАЙОМСТВО ТА ПЕРШИЙ КРОК
@@ -82,17 +83,17 @@ export const QuestionAnswers = () => {
                     <Text tag="h3" color={TextColor.MAIN} weight={TextWeight.SEMI_BOLD}>Не знайшли відповіді?</Text>
                     <Text tag="span" color={TextColor.MAIN} weight={TextWeight.MEDIUM}>Поставте запитання зручним для вас способом</Text>
                     <div className={cls.socials}>
-                        <a target="_blank" href={links.telegram}><TelegramIcon className={cls.social}/></a>
-                        <a target="_blank" href={links.telegram}><WhatsUpIcon className={cls.social}/></a>
-                        <a target="_blank" href={links.telegram}><ViberIcon className={cls.social}/></a>
+                        <a target="_blank" href={Anchors.TG.link}><TelegramIcon className={cls.social}/></a>
+                        <a target="_blank" href={Anchors.WUP.link}><WhatsUpIcon className={cls.social}/></a>
+                        <a target="_blank" href={Anchors.VIBER.link}><ViberIcon className={cls.social}/></a>
                     </div>
-                    <a target="_blank" href={links.mail} className={cls.link}>
+                    <a target="_blank" href={Anchors.INFO_MAIL.link} className={cls.link}>
                         <MailIcon/>
-                        <Text tag="span" color={TextColor.MAIN}>info@intensive.ua</Text>
+                        <Text tag="span" color={TextColor.MAIN}>{Anchors.INFO_MAIL.name}</Text>
                     </a>
-                    <a target="_blank" href={links.phone} className={cls.link}>
+                    <a target="_blank" href={Anchors.PHONE.link} className={cls.link}>
                         <PhoneIcon className={cls.phoneIcon}/>
-                        <Text tag="span" color={TextColor.MAIN}>+380 (96) 456 24 83</Text>
+                        <Text tag="span" color={TextColor.MAIN}>{Anchors.PHONE.name}</Text>
                     </a>
                 </div>
                 <div className={cls.questions}>

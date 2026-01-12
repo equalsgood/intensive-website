@@ -33,11 +33,11 @@ export const MobileNav = (props: MobileNavProps) => {
                 <Logo isFull={!fixed}/>
                 {(screenWidth < 640 && !fixed)
                     ? undefined
-                    : <CustomLink to={Anchors.PHONE} variant={CustomLinkVariants.ANCHOR} classNamesProps={cls.phone}>
-                        +380 (96) 456-24-83
+                    : <CustomLink to={Anchors.PHONE.link} variant={CustomLinkVariants.ANCHOR} classNamesProps={cls.phone}>
+                        {Anchors.PHONE.name}
                     </CustomLink>
                 }
-                <CustomLink to={Anchors.TG} variant={CustomLinkVariants.ANCHOR_ICON} classNamesProps={classNames(cls.tg, {[cls.expanded]: !fixed})}>
+                <CustomLink to={Anchors.TG.link} variant={CustomLinkVariants.ANCHOR_ICON} classNamesProps={classNames(cls.tg, {[cls.expanded]: !fixed})}>
                     <TgIcon/>
                 </CustomLink>
                 <button type="button" className={cls.button} onClick={() => changeMenuState()}>

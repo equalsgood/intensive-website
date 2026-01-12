@@ -8,16 +8,7 @@ import WhatsUpIcon from "shared/assets/icons/social/wup.svg";
 import ViberIcon from "shared/assets/icons/social/viber.svg";
 import InstIcon from "shared/assets/icons/social/inst.svg";
 import { Context } from "app/providers/ContextProvider";
-
-const contactsLinks = {
-    telegram: 'https://t.me/tutorartembabak',
-    inst: 'https://www.instagram.com/intensiveschool.ua',
-    customerMail: 'mailto:ask@intensive.ua',
-    hrMail: 'mailto:hr@intensive.ua',
-    coopMail: 'mailto:coop@intensive.ua',
-    phone: 'tel:+380964562483',
-    map: 'https://maps.app.goo.gl/wyA7tCUszJLmLM5h6',
-}
+import { Anchors } from "app/providers/AppRouter";
 
 export const ContactsSection = () => {
     const { screenWidth } = useContext(Context);
@@ -38,8 +29,7 @@ export const ContactsSection = () => {
                         <Text tag="p" color={TextColor.MAIN} weight={TextWeight.MEDIUM} classNamesProps={cls.infoPiece}>
                             49000, Дніпро, вул. Театральна, буд. 3, каб. 1
                         </Text>
-                        <a className={cls.link} target="_blank" href={contactsLinks.map}>Перейти
-                            до карт</a>
+                        <a className={cls.link} target="_blank" href={Anchors.MAP.link}>{Anchors.MAP.name}</a>
                     </div>
                     <div className={classNames(cls.contact, cls.companyInfo)}>
                         <Text tag="h2" color={TextColor.MAIN} weight={TextWeight.EXTRA_BOLD}
@@ -49,9 +39,14 @@ export const ContactsSection = () => {
                         <Text tag="p" color={TextColor.MAIN} weight={TextWeight.MEDIUM} classNamesProps={cls.infoPiece}>
                             ФІЗІЧНА ОСОБА-ПІДПРИЄМЕЦЬ БАБАК АРТЕМ ВОЛОДИМИРОВИЧ
                         </Text>
-                        <Text tag="p" color={TextColor.MAIN} weight={TextWeight.MEDIUM} classNamesProps={cls.infoPiece}>
-                            Рахунок №<br/>UA243077700000026009711158064
-                        </Text>
+                        {screenWidth >= 400
+                            ? <Text tag="p" color={TextColor.MAIN} weight={TextWeight.MEDIUM} classNamesProps={cls.infoPiece}>
+                                Рахунок №<br/>UA243077700000026009711158064
+                            </Text>
+                            : <Text tag="p" color={TextColor.MAIN} weight={TextWeight.MEDIUM} classNamesProps={cls.infoPiece}>
+                                Рахунок №<br/>UA243077700000026<br/>009711158064
+                            </Text>
+                        }
                         <Text tag="p" color={TextColor.MAIN} weight={TextWeight.MEDIUM} classNamesProps={cls.infoPiece}>
                             ЄДРПОУ <br/>3676710975
                         </Text>
@@ -67,8 +62,8 @@ export const ContactsSection = () => {
                               classNamesProps={cls.subtitle}>
                             Телефони
                         </Text>
-                        <a className={cls.link} target="_blank" href={contactsLinks.phone}>+380 (96) 456 24 83</a>
-                        <a className={cls.link} target="_blank" href={contactsLinks.phone}>+380 (96) 456 24 83</a>
+                        <a className={cls.link} target="_blank" href={Anchors.PHONE.link}>{Anchors.PHONE.name}</a>
+                        <a className={cls.link} target="_blank" href={Anchors.SECOND_PHONE.link}>{Anchors.SECOND_PHONE.name}</a>
                     </div>
                     <div className={classNames(cls.contact, cls.socialsContainer)}>
                         <Text tag="h2" color={TextColor.MAIN} weight={TextWeight.EXTRA_BOLD}
@@ -76,10 +71,10 @@ export const ContactsSection = () => {
                             Месенжери та соціальні мережі
                         </Text>
                         <div className={cls.socials}>
-                            <a target="_blank" href={contactsLinks.telegram}><TelegramIcon className={cls.social}/></a>
-                            <a target="_blank" href='https://wa.me/380964562483'><WhatsUpIcon className={cls.social}/></a>
-                            <a target="_blank" href='viber://chat/?number=%2B380964562483'><ViberIcon className={cls.social}/></a>
-                            <a target="_blank" href={contactsLinks.inst}><InstIcon className={cls.social}/></a>
+                            <a target="_blank" href={Anchors.TG.link}><TelegramIcon className={cls.social}/></a>
+                            <a target="_blank" href={Anchors.WUP.link}><WhatsUpIcon className={cls.social}/></a>
+                            <a target="_blank" href={Anchors.VIBER.link}><ViberIcon className={cls.social}/></a>
+                            <a target="_blank" href={Anchors.INST.link}><InstIcon className={cls.social}/></a>
                         </div>
                     </div>
                     <div className={classNames(cls.contact, cls.mailsContainer)}>
@@ -89,40 +84,12 @@ export const ContactsSection = () => {
                         </Text>
                         <div className={cls.mails}>
                             <div className={cls.mail}>
-                                {screenWidth >= 1280
-                                    ? <Text tag="p" color={TextColor.MAIN} weight={TextWeight.MEDIUM}
-                                            classNamesProps={cls.infoPiece}>
-                                        Підтримка <br/>клієнтів
-                                    </Text>
-                                    : <Text tag="p" color={TextColor.MAIN} weight={TextWeight.MEDIUM}
-                                            classNamesProps={cls.infoPiece}>
-                                        Підтримка клієнтів
-                                    </Text>
-                                }
-                                <a className={cls.link} target="_blank"
-                                   href={contactsLinks.customerMail}>ask@intensive.ua</a>
-                            </div>
-                            <div className={cls.mail}>
-                                {screenWidth >= 1280
-                                    ? <Text tag="p" color={TextColor.MAIN} weight={TextWeight.MEDIUM}
-                                            classNamesProps={cls.infoPiece}>
-                                        Праце-<br/>влаштування
-                                    </Text>
-                                    : <Text tag="p" color={TextColor.MAIN} weight={TextWeight.MEDIUM}
-                                            classNamesProps={cls.infoPiece}>
-                                        Працевлаштування
-                                    </Text>
-                                }
-                                <a className={cls.link} target="_blank"
-                                   href={contactsLinks.hrMail}>hr@intensive.ua</a>
-                            </div>
-                            <div className={cls.mail}>
                                 <Text tag="p" color={TextColor.MAIN} weight={TextWeight.MEDIUM}
                                       classNamesProps={cls.infoPiece}>
-                                    Співпраця
+                                    Зв'язок з нами
                                 </Text>
                                 <a className={cls.link} target="_blank"
-                                   href={contactsLinks.coopMail}>coop@intensive.ua</a>
+                                   href={Anchors.INFO_MAIL.link}>{Anchors.INFO_MAIL.name}</a>
                             </div>
                         </div>
                     </div>

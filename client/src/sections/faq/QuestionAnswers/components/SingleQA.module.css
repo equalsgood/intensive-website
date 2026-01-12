@@ -79,7 +79,7 @@
 
 @media (max-width: 959px) {
     .container {
-        padding: 0 24px 22px;
+        padding: 0 18px 22px;
     }
 
     .container p {
@@ -91,11 +91,11 @@
     }
 
     .question-container h4 {
-        font-size: 20px;
+        font-size: 18px;
     }
 
     .question-container svg {
-        height: 50px;
+        height: 40px;
     }
 }
 
@@ -117,6 +117,12 @@
     }
 
     .question-container svg {
-        height: 40px;
+        height: 32px;
+    }
+}
+
+@media (max-width: 400px) {
+    .question-container h4 {
+        font-size: 16px;
     }
 }

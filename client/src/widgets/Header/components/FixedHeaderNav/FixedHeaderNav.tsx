@@ -36,10 +36,10 @@ export const FixedHeaderNav = ({onClick, screenWidth, intersecting}: FixedHeader
                 }
             </div>
             <div className={cls.fullActionBlock}>
-                <CustomLink to={Anchors.PHONE} variant={CustomLinkVariants.ANCHOR} classNamesProps={cls.phone}>
-                    +380 (96) 456-24-83
+                <CustomLink to={Anchors.PHONE.link} variant={CustomLinkVariants.ANCHOR} classNamesProps={cls.phone}>
+                    {Anchors.PHONE.name}
                 </CustomLink>
-                <CustomLink to={Anchors.TG} variant={CustomLinkVariants.ANCHOR_ICON} classNamesProps={cls.icon}>
+                <CustomLink to={Anchors.TG.link} variant={CustomLinkVariants.ANCHOR_ICON} classNamesProps={cls.icon}>
                     <TgIcon/>
                 </CustomLink>
                 <Button type="button" variant={ButtonVariants.ACTION} text="Записатись на заняття"

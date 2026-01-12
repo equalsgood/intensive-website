@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react';
 import { HashLink } from 'react-router-hash-link';
 import cls from "./CustomLink.module.css";
-import { Anchors, HomePaths, RoutePaths } from "app/providers/AppRouter";
+import { HomePaths, RoutePaths } from "app/providers/AppRouter";
 import { Link } from "react-router";
 import classNames from "classnames";
 
@@ -16,7 +16,7 @@ export enum CustomLinkVariants {
 
 export interface CustomLinkProps {
     children: ReactNode;
-    to: RoutePaths | Anchors | HomePaths;
+    to: RoutePaths | string | HomePaths;
     variant: CustomLinkVariants;
     classNamesProps?: string;
     hoverHandler?: (hovered: boolean) => void;
