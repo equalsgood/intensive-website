@@ -38,7 +38,7 @@ interface IAnchors {
 export const Anchors: IAnchors = {
     PHONE: { name: '+380 (68) 916-91-53', link: 'tel:+380689169153' },
     SECOND_PHONE: { name: '+380 (96) 456-24-83', link: 'tel:+380964562483' },
-    TG: { name: '', link: 'https://t.me/tutorartembabak' },
+    TG: { name: '', link: 'https://t.me/intensiveschool_com_ua' },
     VIBER: { name: '', link: 'viber://chat/?number=%2B380964562483' },
     WUP: { name: '', link: 'https://wa.me/380964562483' },
     INST: { name: '', link: 'https://www.instagram.com/intensiveschool.ua' },
