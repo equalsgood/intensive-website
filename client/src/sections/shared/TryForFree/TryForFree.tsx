@@ -104,6 +104,16 @@ export const TryForFree = ({ isModal, onClose }: TryForFreeProps) => {
         setArea('');
         if(isModal)
             onClose(false);
+
+        if(succeed) {
+            if ((window as any).gtag) {
+                (window as any).gtag('event', 'conversion', {
+                    'send_to': 'AW-17872014783/DT__CLOfhOIbEL-bhcpC',
+                    'value': 1.0,
+                    'currency': 'UAH'
+                });
+            }
+        }
     }
 
     const goBack = () => {
